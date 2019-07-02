@@ -1,5 +1,5 @@
 # Bluff
-
+--== There still might be some bugs in this game that I haven't discovered yet. ==--
 
 This is my first real game, done from scratch.
 It is multiplayer card game for 2-8 players (no AI yet, maybe will be implemented in the future)
@@ -15,6 +15,8 @@ If he go with Ckech option, all cards flip and game checks if the chosen value w
 If it was, than player who chcecked gets an extra card, if not, the player who chose that option gets an extra card.
 So in the next round, all of the players have still one card, expect one player who has two.
 
+First player in upcoming round is the one who checked in previous round. If he lost this round, next player in line will be first player.
+
 Player looses the game, when he has a specifict number of cards in hand and gets another one. The number changes, depending
 on how many players play the game.
 2-4 players - 5 cards
@@ -26,9 +28,11 @@ Rest of the players still playing according to the rules.
 
 Game ends, when there is only one player left on the table.
 
-
 Game is called "Bluff" just to encourage players to bluff/lie during the game. 
 For example, If you are a first player this round and you have three cards: Nine, Ten and Ace you can say, A pair of queens.
 Next player, seeing that you have three cards, will most likely think, that you realy got two queens, or at least one and he might say something greater than that. Another player may set everything he has on your lie (and say for example full house - queens over jacks).
 At the end it will come out that there is no queen in cards at all.
 But if you want, you can also play safe and always go with the cards that you have in hand.
+
+
+I hope that this explains the principle of this game in a comprehensible way.
