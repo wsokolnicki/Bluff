@@ -1,5 +1,5 @@
 # Bluff
---== There still might be some bugs in this game that I haven't discovered yet. ==--
+--== There still might be some bugs that I haven't discovered yet. ==--
 
 This is my first real game, done from scratch.
 It is multiplayer card game for 2-8 players (no AI yet, maybe will be implemented in the future)
