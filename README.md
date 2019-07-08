@@ -11,13 +11,13 @@ and each card from all players hand are taking part in the game.
 First player, who is chosen randomly, choose a poker value, that he thinks is in the game (in all of the cards in players hand).
 For example High Card Ace or One Pair or even Royal Flush.
 Next player has to choose a poker value greater then previous one or can simply check the previous player.
-If he go with Ckech option, all cards flip and game checks if the chosen value was indeed in all cards in game.
+If he go with Check option, all cards flip and game checks if the chosen value was indeed in all cards in game.
 If it was, than player who chcecked gets an extra card, if not, the player who chose that option gets an extra card.
 So in the next round, all of the players have still one card, expect one player who has two.
 
-First player in upcoming round is the one who checked in previous round. If he lost this round, next player in line will be first player.
+Player who checked in previus round will begin the next round. If he lost this round, next player in line will be first player.
 
-Player looses the game, when he has a specifict number of cards in hand and gets another one. The number changes, depending
+Player looses the game, when he has a specific number of cards in hand and gets another one. The number changes, depending
 on how many players play the game.
 2-4 players - 5 cards
 5-6 players - 4 cards
