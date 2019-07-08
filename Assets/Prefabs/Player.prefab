@@ -5116,7 +5116,7 @@ MonoBehaviour:
   playerNameText: {fileID: 8427394144027841840}
   playerNameGO: {fileID: 8427394144027841846}
   particlePlusOne: {fileID: 4360573952435720808}
-  noOfCardsInHand: 3
+  noOfCardsInHand: 1
   currentNoOfCardsInHand: 0
   currentPlayer: 0
   playerName: Player
