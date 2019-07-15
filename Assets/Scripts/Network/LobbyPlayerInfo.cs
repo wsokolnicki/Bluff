@@ -4,13 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using System;
+#pragma warning disable 618
+#pragma warning disable 0649
 
 public class LobbyPlayerInfo : NetworkLobbyPlayer
 {
     public static LobbyPlayerInfo _instace;
 
     [SerializeField] Text playerNameText;
-    [SerializeField] Button readyButton;
+    [SerializeField] Button readyButton; 
     [SerializeField] Image readyImage;
 
     [SyncVar] public bool playerReady = false;
@@ -66,7 +68,6 @@ public class LobbyPlayerInfo : NetworkLobbyPlayer
     void SetupLocalPlayer()
     {
         SetLocalPlayerGreen();
-        //LobbyManager._singelton.OnPlayerNumberModified(1);
 
         CmdNameChange(PlayerInfo.playerName);
         playerNameText.text = playerName;
@@ -76,7 +77,6 @@ public class LobbyPlayerInfo : NetworkLobbyPlayer
 
         readyButton.onClick.RemoveAllListeners();
         readyButton.onClick.AddListener(OnReadyClicked);
-
     }
 
     private void SetLocalPlayerGreen()
@@ -145,3 +145,5 @@ public class LobbyPlayerInfo : NetworkLobbyPlayer
         if (LobbyManager._singelton != null) LobbyManager._singelton.OnPlayerNumberModified(-1);
     }
 }
+
+#pragma warning restore 0649 

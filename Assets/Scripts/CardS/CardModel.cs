@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#pragma warning disable 0649
 
 public class CardModel : MonoBehaviour
 {
@@ -94,3 +95,5 @@ public class CardModel : MonoBehaviour
         flipAnimation = false;
     }
 }
+
+#pragma warning restore 0649

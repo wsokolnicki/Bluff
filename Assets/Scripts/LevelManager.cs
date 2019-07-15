@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+#pragma warning disable 0649
 
 public class LevelManager : MonoBehaviour
 {
@@ -28,3 +29,4 @@ public class LevelManager : MonoBehaviour
         Application.Quit();
     }
 }
+#pragma warning restore 0649

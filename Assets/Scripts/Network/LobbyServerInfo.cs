@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking.Match;
 using UnityEngine.Networking.Types;
+#pragma warning disable 618
+#pragma warning disable 0649
 
 public class LobbyServerInfo : MonoBehaviour
 {
@@ -28,3 +30,5 @@ public class LobbyServerInfo : MonoBehaviour
         lobbyManager._isMatchmaking = true;
     }
 }
+
+#pragma warning restore 0649

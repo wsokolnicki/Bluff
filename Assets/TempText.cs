@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+#pragma warning disable 0649
 
 public class TempText : MonoBehaviour
 {
@@ -26,13 +27,13 @@ public class TempText : MonoBehaviour
     //    Invoke("Dupa", 0.2f);
     //}
 
-   // void Dupa()
-   // {
-       // players = new Text[4] { player1, player2, player3, player4 };
-       // bools = new Text[4] { boolCurrPl1, boolCurrPl2, boolCurrPl3, boolCurrPl4 };
+    // void Dupa()
+    // {
+    // players = new Text[4] { player1, player2, player3, player4 };
+    // bools = new Text[4] { boolCurrPl1, boolCurrPl2, boolCurrPl3, boolCurrPl4 };
 
-       // x = true;
-   // }
+    // x = true;
+    // }
 
     private void Update()
     {
@@ -49,5 +50,6 @@ public class TempText : MonoBehaviour
         int dupa = Gameplay._instance.lastPlayerIndex + 1;
         seed.text = dupa.ToString();
     }
-
 }
+
+#pragma warning restore 0649

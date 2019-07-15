@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+#pragma warning disable 0649
 
 public class MainMenu : MonoBehaviour
 {
@@ -34,3 +35,5 @@ public class MainMenu : MonoBehaviour
         playerNameChange.SetActive(true);
     }
 }
+
+#pragma warning restore 0649

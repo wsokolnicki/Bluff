@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+#pragma warning disable 618
+#pragma warning disable 0649
 
 public class Gameplay : NetworkBehaviour
 {
@@ -555,3 +557,6 @@ public class Gameplay : NetworkBehaviour
             return 3;
     }
 }
+
+#pragma warning restore 0649
+

@@ -420,6 +420,7 @@ MonoBehaviour:
   playerNameText: {fileID: 8981251941224768451}
   readyButton: {fileID: 5620696726782661794}
   readyImage: {fileID: 5630957080243005634}
+  playerReady: 0
   playerName: 
 --- !u!1 &8981251941224768449
 GameObject:

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
+#pragma warning disable 618
 
 public class EscapePanel : MonoBehaviour
 {

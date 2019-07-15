@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using System;
+#pragma warning disable 618
+#pragma warning disable 0649
 
 public class Player : NetworkBehaviour
 {
@@ -125,3 +127,5 @@ public class Player : NetworkBehaviour
             RpcPlayerReadySync(false);
     }
 }
+
+#pragma warning restore 0649

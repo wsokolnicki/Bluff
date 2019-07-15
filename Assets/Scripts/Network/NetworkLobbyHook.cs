@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
+#pragma warning disable 618
 
 public class NetworkLobbyHook : LobbyHook
 {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking.Match;
+#pragma warning disable 0649
 
 public class LobbyPlayerList : MonoBehaviour
 {
@@ -40,3 +41,5 @@ public class LobbyPlayerList : MonoBehaviour
         return _players.Count;
     }
 }
+
+#pragma warning restore 0649

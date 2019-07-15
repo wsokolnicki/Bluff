@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
 using UnityEngine.Networking.Types;
+#pragma warning disable 618
+#pragma warning disable 0649
 
 public class LobbyManager : NetworkLobbyManager
 {
@@ -151,7 +153,7 @@ public class LobbyManager : NetworkLobbyManager
         {
             LobbyPlayerInfo p = lobbySlots[i] as LobbyPlayerInfo;
 
-            if (p != null)
+            if (p != null && !p.playerReady)
                 p.ToggleReadyButton(numPlayers + 1 >= minPlayers);
         }
         return obj;
@@ -259,3 +261,5 @@ public class LobbyManager : NetworkLobbyManager
         ServerChangeScene(playScene);
     }
 }
+
+#pragma warning restore 0649

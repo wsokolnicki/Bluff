@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking.Match;
 using UnityEngine.Networking.Types;
+#pragma warning disable 618
+#pragma warning disable 0649
 
 public class LobbyServerList : MonoBehaviour
 {
@@ -49,3 +51,5 @@ public class LobbyServerList : MonoBehaviour
         }
     }
 }
+
+#pragma warning restore 0649
