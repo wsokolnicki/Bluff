@@ -10,6 +10,7 @@ public class ButtonValue : MonoBehaviour
     [SerializeField] int actionNumber = 0;
     [SerializeField] int firstCardNumber = 0;
     [SerializeField] int secondCardNumber = 0;
+    public bool active = true;
 
     private void OnEnable()
     {
@@ -51,6 +52,7 @@ public class ButtonValue : MonoBehaviour
         {
             gameObject.GetComponent<Image>().enabled = true;
             gameObject.GetComponent<Button>().interactable = true;
+            active = true;
         }
         if (action != this.actionNumber)
             return;
@@ -99,5 +101,6 @@ public class ButtonValue : MonoBehaviour
     {
         gameObject.GetComponent<Image>().enabled = false;
         gameObject.GetComponent<Button>().interactable = false;
+        active = false;
     }
 }

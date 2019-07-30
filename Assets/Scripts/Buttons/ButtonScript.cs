@@ -9,9 +9,10 @@ public class ButtonScript : MonoBehaviour
 
     public int actionIndex;
     Vector3 startPosition;
-    float offsetX = 200;
+    float offsetX = 500;
     Vector3 offset;
     GameObject buttonParent;
+    public bool active = true;
 
     private void Awake()
     { _inst = this; }
@@ -36,17 +37,24 @@ public class ButtonScript : MonoBehaviour
         foreach (ButtonScript mainButton in FindObjectsOfType<ButtonScript>())
         {
             if (aV == 0)
+            {
                 mainButton.GetComponent<Button>().interactable = true;
-
+                active = true;
+            }
             else if (mainButton.actionIndex < aV)
+            {
                 mainButton.GetComponent<Button>().interactable = false;
-
+                active = false;
+            }
             else if (mainButton.actionIndex == aV)
             {   //Turn off the button, when top value is chosen in a ...
                 if ((fCV % 6 == 0 && sCV == 0) ||                     // single value return (high card, three of a kind etc
                     ((aV == 7 || aV == 11) && fCV == 4) ||                // suit return (flush, royal flush)
                     ((fCV == 6 && sCV == 5) || (aV == 3 && fCV == 5 && sCV == 6))) // two pairs or full house
+                {
                     mainButton.GetComponent<Button>().interactable = false;
+                    active = false;
+                }
             }
         }
     }

@@ -79,6 +79,17 @@ public class Player : NetworkBehaviour
         float nameRadiusY = 1.3f;
         var position = playersNameEllipse(angle, transform.position, nameRadiusY, nameRadiusX);
         playerNameGO.transform.position = position;
+        SetTextAlignment(playerNameGO);
+        Debug.Log((Camera.main.WorldToViewportPoint(playerNameGO.transform.position).x));
+    }
+    void SetTextAlignment(GameObject name)
+    {
+        if((Camera.main.WorldToViewportPoint(name.transform.position).x == 0.5f))
+            playerNameGO.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
+        else if(Camera.main.WorldToViewportPoint(name.transform.position).x < 0.5f)
+            playerNameGO.GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
+        else
+            playerNameGO.GetComponent<Text>().alignment = TextAnchor.MiddleRight;   
     }
     Vector3 playersNameEllipse(float ang, Vector3 center, float radiusA, float radiusB)
     {

@@ -13,6 +13,7 @@ TagManager:
   - TopButton
   - HasChildren
   - Children
+  - Arrow
   layers:
   - Default
   - TransparentFX

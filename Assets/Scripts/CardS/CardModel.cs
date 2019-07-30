@@ -15,6 +15,9 @@ public class CardModel : MonoBehaviour
     public bool faceUp = false;
     [HideInInspector] public bool flipAnimation;
 
+    //For adding arrows after check option
+    [HideInInspector] public Vector3 playerPosition;
+
     //For handling cards
     [HideInInspector] public bool handling = false;
     float handlingSpeed;

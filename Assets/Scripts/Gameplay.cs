@@ -17,6 +17,7 @@ public class Gameplay : NetworkBehaviour
     [SerializeField] Text lastChosenValueText;
     [SerializeField] Text winner;
     [SerializeField] GameObject winScreen;
+    [SerializeField] GameObject arrowPrefab;
     public GameObject pressSpace;
     public GameObject checkButton;
     public GameObject buttonParent;
@@ -207,8 +208,8 @@ public class Gameplay : NetworkBehaviour
         }
 
         int topCardIndex = 1;
-        delayBetweenCardsHandling = 
-            ((timeForHandlingCards / tottalAmountOfCardsInGameThisRound)> 0.5f) ? 0.5f : timeForHandlingCards / tottalAmountOfCardsInGameThisRound;
+        delayBetweenCardsHandling =
+            ((timeForHandlingCards / tottalAmountOfCardsInGameThisRound) > 0.5f) ? 0.5f : timeForHandlingCards / tottalAmountOfCardsInGameThisRound;
 
         while (cardsInGame.Count < tottalAmountOfCardsInGameThisRound)
         {
@@ -358,10 +359,52 @@ public class Gameplay : NetworkBehaviour
                     ChangeCardsParent(card);
             }
         }
+        StartCoroutine(AddingArrows());
         AddingCardToLoser(action, firstCard, secondCard);
     }
+    IEnumerator AddingArrows()
+    {
+        float x = 0;
+        float offset = 0.55f;
+        int arrowSize = 7;
+        float shortCoefficient = 0.65f;
+        float arrowWidth = 0.3f;
+
+        GameObject[] cards = new GameObject[checkedCards.transform.childCount];
+        for(int i=0; i<checkedCards.transform.childCount; i++)
+        {
+            cards[i] = checkedCards.transform.GetChild(i).gameObject;
+        }
+        yield return new WaitUntil(() => cards.Length == checkedCards.transform.childCount);
+
+        foreach (GameObject card in cards)
+        {
+            CardModel cardmodel = card.GetComponent<CardModel>();
+            Vector3 vectorBetweenCardAndPlayer = (cardmodel.playerPosition - card.transform.position).normalized;
+            var magnitude = (cardmodel.playerPosition - card.transform.position).magnitude;
+            var angle = Vector3.Angle(transform.up, vectorBetweenCardAndPlayer);
+            int signAngle = (cardmodel.playerPosition.x > card.transform.position.x) ? -1 : 1;
+            var arrowGO = Instantiate(arrowPrefab, card.transform.position, Quaternion.identity);
+
+            int signTranslate = (angle > 90) ? -1 : 1;
+
+            arrowGO.transform.Translate(new Vector3(0, signTranslate * offset, 0));
+            if (angle == 90)
+            {
+                arrowGO.transform.Translate(new Vector3(0, signTranslate *x, 0));
+                x += 0.1f;
+            }
+  
+            arrowGO.transform.eulerAngles = new Vector3(0, 0, signAngle * angle);
+            arrowGO.transform.localScale = new Vector3(arrowWidth, magnitude / arrowSize * shortCoefficient, 1);
+            arrowGO.GetComponent<SpriteRenderer>().sortingOrder = 7;
+        }
+    }
     void ChangeCardsParent(GameObject card)
-    { card.transform.SetParent(checkedCards.transform); }
+    {
+        card.GetComponent<CardModel>().playerPosition = card.transform.parent.parent.parent.position;
+        card.transform.SetParent(checkedCards.transform);
+    }
     private void ShowingCardWithoutRepetitions(List<int> alreadyChecked, GameObject card, CardModel cardModel)
     {
         if (alreadyChecked.Count == 0)
@@ -476,6 +519,11 @@ public class Gameplay : NetworkBehaviour
         playersReady = false;
         playerLostRound.GetComponent<Player>().particlePlusOne.SetActive(false);
         playerLostRound = new GameObject();
+
+        //Destroying all arrows
+        GameObject[] arrows = GameObject.FindGameObjectsWithTag("Arrow");
+        for (int i = 0; i < arrows.Length; i++)
+        { Destroy(arrows[i]); }
 
         //Destroying all cards
         GameObject[] cards = GameObject.FindGameObjectsWithTag("Card");

@@ -325,6 +325,7 @@ MonoBehaviour:
   actionNumber: 2
   firstCardNumber: 6
   secondCardNumber: 0
+  active: 1
 --- !u!222 &4112762
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -559,6 +560,7 @@ MonoBehaviour:
   actionNumber: 9
   firstCardNumber: 4
   secondCardNumber: 0
+  active: 1
 --- !u!222 &9052999
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -793,6 +795,7 @@ MonoBehaviour:
   actionNumber: 7
   firstCardNumber: 3
   secondCardNumber: 0
+  active: 1
 --- !u!222 &33766171
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -948,6 +951,7 @@ MonoBehaviour:
   actionNumber: 7
   firstCardNumber: 4
   secondCardNumber: 0
+  active: 1
 --- !u!222 &40330127
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1257,6 +1261,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 6
   secondCardNumber: 5
+  active: 1
 --- !u!222 &98026920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1402,6 +1407,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 6
   secondCardNumber: 4
+  active: 1
 --- !u!222 &101741896
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1688,6 +1694,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 1
   secondCardNumber: 10
+  active: 1
 --- !u!1 &129931454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,6 +1921,7 @@ MonoBehaviour:
   actionNumber: 7
   firstCardNumber: 2
   secondCardNumber: 0
+  active: 1
 --- !u!222 &137355974
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2069,6 +2077,7 @@ MonoBehaviour:
   actionNumber: 4
   firstCardNumber: 6
   secondCardNumber: 0
+  active: 1
 --- !u!222 &141468363
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2293,6 +2302,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 3
   secondCardNumber: 1
+  active: 1
 --- !u!222 &181247872
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2448,6 +2458,7 @@ MonoBehaviour:
   actionNumber: 10
   firstCardNumber: 1
   secondCardNumber: 0
+  active: 1
 --- !u!222 &189016081
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2937,6 +2948,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 3
   secondCardNumber: 10
+  active: 1
 --- !u!1 &228532652
 GameObject:
   m_ObjectHideFlags: 0
@@ -3074,6 +3086,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 5
   secondCardNumber: 6
+  active: 1
 --- !u!222 &228532657
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3528,6 +3541,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 4
   secondCardNumber: 6
+  active: 1
 --- !u!222 &241415180
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3735,6 +3749,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 5
   secondCardNumber: 10
+  active: 1
 --- !u!1 &246119855
 GameObject:
   m_ObjectHideFlags: 0
@@ -3934,6 +3949,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 4
   secondCardNumber: 10
+  active: 1
 --- !u!1 &263970897
 GameObject:
   m_ObjectHideFlags: 0
@@ -4081,6 +4097,7 @@ MonoBehaviour:
   actionNumber: 11
   firstCardNumber: 4
   secondCardNumber: 0
+  active: 1
 --- !u!222 &263970903
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4774,6 +4791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 20
+  active: 1
 --- !u!1 &322592989
 GameObject:
   m_ObjectHideFlags: 0
@@ -4990,6 +5008,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 3
   secondCardNumber: 4
+  active: 1
 --- !u!222 &325284862
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5325,6 +5344,7 @@ MonoBehaviour:
   actionNumber: 4
   firstCardNumber: 5
   secondCardNumber: 0
+  active: 1
 --- !u!222 &347222250
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5470,6 +5490,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 2
   secondCardNumber: 4
+  active: 1
 --- !u!222 &351334910
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5773,6 +5794,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 1
   secondCardNumber: 3
+  active: 1
 --- !u!222 &380270667
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5918,6 +5940,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 4
   secondCardNumber: 1
+  active: 1
 --- !u!222 &390164204
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6283,6 +6306,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 6
   secondCardNumber: 10
+  active: 1
 --- !u!1 &403370159
 GameObject:
   m_ObjectHideFlags: 0
@@ -6640,6 +6664,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 6
   secondCardNumber: 10
+  active: 1
 --- !u!1 &418938319
 GameObject:
   m_ObjectHideFlags: 0
@@ -7014,6 +7039,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 3
   secondCardNumber: 4
+  active: 1
 --- !u!222 &440070371
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7388,6 +7414,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 6
   secondCardNumber: 5
+  active: 1
 --- !u!222 &479163888
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7608,6 +7635,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 6
   secondCardNumber: 4
+  active: 1
 --- !u!222 &514014755
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7845,6 +7873,7 @@ MonoBehaviour:
   actionNumber: 11
   firstCardNumber: 2
   secondCardNumber: 0
+  active: 1
 --- !u!222 &522062638
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7990,6 +8019,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 2
   secondCardNumber: 1
+  active: 1
 --- !u!222 &539400032
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8214,6 +8244,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 1
   secondCardNumber: 4
+  active: 1
 --- !u!222 &544453651
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8438,6 +8469,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 6
   secondCardNumber: 1
+  active: 1
 --- !u!222 &561318938
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8890,6 +8922,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 2
   secondCardNumber: 3
+  active: 1
 --- !u!222 &623555616
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9114,6 +9147,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 1
   secondCardNumber: 3
+  active: 1
 --- !u!222 &652585529
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9368,6 +9402,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 4
   secondCardNumber: 6
+  active: 1
 --- !u!222 &685626798
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9671,6 +9706,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 1
   secondCardNumber: 2
+  active: 1
 --- !u!222 &702066463
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9895,6 +9931,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 5
   secondCardNumber: 4
+  active: 1
 --- !u!222 &712949826
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10050,6 +10087,7 @@ MonoBehaviour:
   actionNumber: 9
   firstCardNumber: 5
   secondCardNumber: 0
+  active: 1
 --- !u!222 &718619579
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10195,6 +10233,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 4
   secondCardNumber: 2
+  active: 1
 --- !u!222 &722056922
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10429,6 +10468,7 @@ MonoBehaviour:
   actionNumber: 10
   firstCardNumber: 4
   secondCardNumber: 0
+  active: 1
 --- !u!222 &769940832
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10663,6 +10703,7 @@ MonoBehaviour:
   actionNumber: 4
   firstCardNumber: 4
   secondCardNumber: 0
+  active: 1
 --- !u!222 &772071620
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10870,6 +10911,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 2
   secondCardNumber: 10
+  active: 1
 --- !u!1 &796967289
 GameObject:
   m_ObjectHideFlags: 0
@@ -11007,6 +11049,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 6
   secondCardNumber: 3
+  active: 1
 --- !u!222 &796967294
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12439,6 +12482,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 4
   secondCardNumber: 2
+  active: 1
 --- !u!222 &954251821
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12584,6 +12628,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 2
   secondCardNumber: 3
+  active: 1
 --- !u!222 &960594923
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12791,6 +12836,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 3
   secondCardNumber: 10
+  active: 1
 --- !u!1 &970718670
 GameObject:
   m_ObjectHideFlags: 0
@@ -13578,6 +13624,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 3
   secondCardNumber: 1
+  active: 1
 --- !u!222 &1028741909
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13971,6 +14018,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 6
   secondCardNumber: 2
+  active: 1
 --- !u!222 &1058487045
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14274,6 +14322,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 6
   secondCardNumber: 2
+  active: 1
 --- !u!222 &1069819607
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14429,6 +14478,7 @@ MonoBehaviour:
   actionNumber: 4
   firstCardNumber: 3
   secondCardNumber: 0
+  active: 1
 --- !u!222 &1092583627
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15090,6 +15140,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 5
   secondCardNumber: 10
+  active: 1
 --- !u!1 &1145354562
 GameObject:
   m_ObjectHideFlags: 0
@@ -15306,6 +15357,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 4
   secondCardNumber: 5
+  active: 1
 --- !u!222 &1153244753
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15817,6 +15869,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 5
   secondCardNumber: 6
+  active: 1
 --- !u!222 &1192843683
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15962,6 +16015,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 5
   secondCardNumber: 3
+  active: 1
 --- !u!222 &1202279657
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16186,6 +16240,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 3
   secondCardNumber: 5
+  active: 1
 --- !u!222 &1210891169
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16410,6 +16465,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 4
   secondCardNumber: 1
+  active: 1
 --- !u!222 &1213430011
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16942,6 +16998,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 1
   secondCardNumber: 6
+  active: 1
 --- !u!222 &1250779482
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17300,6 +17357,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 3
   secondCardNumber: 2
+  active: 1
 --- !u!222 &1303388247
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17455,6 +17513,7 @@ MonoBehaviour:
   actionNumber: 2
   firstCardNumber: 4
   secondCardNumber: 0
+  active: 1
 --- !u!222 &1304879850
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17600,6 +17659,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 3
   secondCardNumber: 2
+  active: 1
 --- !u!222 &1345963741
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17755,6 +17815,7 @@ MonoBehaviour:
   actionNumber: 10
   firstCardNumber: 3
   secondCardNumber: 0
+  active: 1
 --- !u!222 &1348396844
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17900,6 +17961,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 1
   secondCardNumber: 5
+  active: 1
 --- !u!222 &1352480888
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18134,6 +18196,7 @@ MonoBehaviour:
   actionNumber: 2
   firstCardNumber: 5
   secondCardNumber: 0
+  active: 1
 --- !u!222 &1367453889
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18437,6 +18500,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 2
   secondCardNumber: 5
+  active: 1
 --- !u!222 &1403976364
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18582,6 +18646,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 3
   secondCardNumber: 6
+  active: 1
 --- !u!222 &1416288514
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18964,6 +19029,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 5
   secondCardNumber: 3
+  active: 1
 --- !u!222 &1461540237
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19188,6 +19254,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 1
   secondCardNumber: 4
+  active: 1
 --- !u!222 &1482705133
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19501,6 +19568,7 @@ MonoBehaviour:
   actionNumber: 4
   firstCardNumber: 2
   secondCardNumber: 0
+  active: 1
 --- !u!222 &1499626075
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19646,6 +19714,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 2
   secondCardNumber: 1
+  active: 1
 --- !u!222 &1501553488
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19880,6 +19949,7 @@ MonoBehaviour:
   actionNumber: 2
   firstCardNumber: 2
   secondCardNumber: 0
+  active: 1
 --- !u!222 &1520686835
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20254,6 +20324,7 @@ MonoBehaviour:
   actionNumber: 11
   firstCardNumber: 3
   secondCardNumber: 0
+  active: 1
 --- !u!222 &1533324787
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20923,6 +20994,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 6
   secondCardNumber: 1
+  active: 1
 --- !u!222 &1646649423
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21226,6 +21298,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 2
   secondCardNumber: 6
+  active: 1
 --- !u!222 &1676239049
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21908,6 +21981,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 5
   secondCardNumber: 1
+  active: 1
 --- !u!222 &1697484716
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22115,6 +22189,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 4
   secondCardNumber: 10
+  active: 1
 --- !u!1 &1707017675
 GameObject:
   m_ObjectHideFlags: 0
@@ -22570,6 +22645,7 @@ MonoBehaviour:
   actionNumber: 10
   firstCardNumber: 2
   secondCardNumber: 0
+  active: 1
 --- !u!222 &1727805717
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22715,6 +22791,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 1
   secondCardNumber: 2
+  active: 1
 --- !u!222 &1732084474
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23097,6 +23174,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 5
   secondCardNumber: 2
+  active: 1
 --- !u!222 &1749540557
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23242,6 +23320,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 3
   secondCardNumber: 6
+  active: 1
 --- !u!222 &1761775468
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23387,6 +23466,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 4
   secondCardNumber: 5
+  active: 1
 --- !u!222 &1761872418
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23542,6 +23622,7 @@ MonoBehaviour:
   actionNumber: 11
   firstCardNumber: 1
   secondCardNumber: 0
+  active: 1
 --- !u!222 &1779500864
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23837,6 +23918,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 1
   secondCardNumber: 5
+  active: 1
 --- !u!222 &1801057920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24123,6 +24205,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 2
   secondCardNumber: 10
+  active: 1
 --- !u!1 &1839529365
 GameObject:
   m_ObjectHideFlags: 0
@@ -24339,6 +24422,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 5
   secondCardNumber: 2
+  active: 1
 --- !u!222 &1849987335
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24573,6 +24657,7 @@ MonoBehaviour:
   actionNumber: 9
   firstCardNumber: 2
   secondCardNumber: 0
+  active: 1
 --- !u!222 &1862535636
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25176,6 +25261,7 @@ MonoBehaviour:
   actionNumber: 9
   firstCardNumber: 6
   secondCardNumber: 0
+  active: 1
 --- !u!222 &1935270010
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25400,6 +25486,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 5
   secondCardNumber: 4
+  active: 1
 --- !u!222 &1958782197
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25545,6 +25632,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 2
   secondCardNumber: 4
+  active: 1
 --- !u!222 &1966410207
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25700,6 +25788,7 @@ MonoBehaviour:
   actionNumber: 9
   firstCardNumber: 3
   secondCardNumber: 0
+  active: 1
 --- !u!222 &1973592985
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25924,6 +26013,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 4
   secondCardNumber: 3
+  active: 1
 --- !u!222 &1982005023
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26148,6 +26238,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 2
   secondCardNumber: 5
+  active: 1
 --- !u!222 &2009242957
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26527,6 +26618,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 6
   secondCardNumber: 3
+  active: 1
 --- !u!222 &2029781689
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26751,6 +26843,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 3
   secondCardNumber: 5
+  active: 1
 --- !u!222 &2054001913
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26896,6 +26989,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 5
   secondCardNumber: 1
+  active: 1
 --- !u!222 &2054184588
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27041,6 +27135,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 2
   secondCardNumber: 6
+  active: 1
 --- !u!222 &2054227022
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27085,6 +27180,8 @@ MonoBehaviour:
   lastChosenValueText: {fileID: 1872128811}
   winner: {fileID: 358450223}
   winScreen: {fileID: 294348179}
+  arrowPrefab: {fileID: 6886104634279063747, guid: f8c01c7543b977f49bb9a8aee08b5db5,
+    type: 3}
   pressSpace: {fileID: 507816936}
   checkButton: {fileID: 307947997}
   buttonParent: {fileID: 0}
@@ -27595,6 +27692,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 1
   secondCardNumber: 6
+  active: 1
 --- !u!222 &2076843794
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28137,6 +28235,7 @@ MonoBehaviour:
   actionNumber: 2
   firstCardNumber: 3
   secondCardNumber: 0
+  active: 1
 --- !u!222 &2130977132
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28282,6 +28381,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 4
   secondCardNumber: 3
+  active: 1
 --- !u!222 &2136910848
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28344,6 +28444,7 @@ MonoBehaviour:
   actionNumber: 1
   firstCardNumber: 1
   secondCardNumber: 0
+  active: 1
 --- !u!114 &805348417854484911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28443,6 +28544,7 @@ MonoBehaviour:
   actionNumber: 1
   firstCardNumber: 2
   secondCardNumber: 0
+  active: 1
 --- !u!222 &1095223970060349807
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29212,6 +29314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 1
+  active: 1
 --- !u!222 &2605105679812785257
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30308,6 +30411,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 1
   secondCardNumber: 10
+  active: 1
 --- !u!222 &3566692303309703786
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31257,6 +31361,7 @@ MonoBehaviour:
   actionNumber: 5
   firstCardNumber: 0
   secondCardNumber: 0
+  active: 1
 --- !u!114 &3842188494865254631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31290,6 +31395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 5
+  active: 1
 --- !u!1 &3842188494874021599
 GameObject:
   m_ObjectHideFlags: 0
@@ -31496,6 +31602,7 @@ MonoBehaviour:
   actionNumber: 6
   firstCardNumber: 0
   secondCardNumber: 0
+  active: 1
 --- !u!114 &3842188495302311331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31529,6 +31636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 6
+  active: 1
 --- !u!114 &4009418013810197330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31663,6 +31771,7 @@ MonoBehaviour:
   actionNumber: 4
   firstCardNumber: 1
   secondCardNumber: 0
+  active: 1
 --- !u!114 &4284317819544806302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31678,6 +31787,7 @@ MonoBehaviour:
   actionNumber: 7
   firstCardNumber: 1
   secondCardNumber: 0
+  active: 1
 --- !u!114 &4284317820114277997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31693,6 +31803,7 @@ MonoBehaviour:
   actionNumber: 2
   firstCardNumber: 1
   secondCardNumber: 0
+  active: 1
 --- !u!222 &4386285518429392195
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31809,6 +31920,7 @@ MonoBehaviour:
   actionNumber: 1
   firstCardNumber: 4
   secondCardNumber: 0
+  active: 1
 --- !u!114 &4533167331961498828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32396,6 +32508,7 @@ MonoBehaviour:
   actionNumber: 1
   firstCardNumber: 5
   secondCardNumber: 0
+  active: 1
 --- !u!114 &6865225380774265490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33847,6 +33960,7 @@ MonoBehaviour:
   actionNumber: 1
   firstCardNumber: 3
   secondCardNumber: 0
+  active: 1
 --- !u!114 &8312032339575006710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33874,6 +33988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 11
+  active: 1
 --- !u!114 &8436532280192094129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33887,6 +34002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 3
+  active: 1
 --- !u!114 &8436532281165864736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33900,6 +34016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 7
+  active: 1
 --- !u!114 &8436532281194379323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33913,6 +34030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 2
+  active: 1
 --- !u!114 &8436532281336929103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33926,6 +34044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 9
+  active: 1
 --- !u!114 &8436532281574253095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33939,6 +34058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 4
+  active: 1
 --- !u!114 &8436532281680362150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33952,6 +34072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 8
+  active: 1
 --- !u!114 &8436532281686750297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33965,6 +34086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 10
+  active: 1
 --- !u!114 &8571288719608970802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34672,6 +34794,7 @@ MonoBehaviour:
   actionNumber: 1
   firstCardNumber: 6
   secondCardNumber: 0
+  active: 1
 --- !u!224 &9124754200626902164
 RectTransform:
   m_ObjectHideFlags: 0

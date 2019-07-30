@@ -132,6 +132,7 @@ MonoBehaviour:
   cardSuit: 0
   faceUp: 0
   flipAnimation: 0
+  playerPosition: {x: 0, y: 0, z: 0}
   handling: 0
 --- !u!114 &3966525447098498720
 MonoBehaviour:
@@ -185,7 +186,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5948914196559799469}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
