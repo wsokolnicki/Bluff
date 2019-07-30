@@ -123,10 +123,12 @@ public class Player : NetworkBehaviour
                 return;
             else
             {
-                if (Input.GetKeyUp(KeyCode.Space))
+                if (Input.GetKeyUp(KeyCode.Space) || (Input.GetKeyUp(KeyCode.Mouse1)))
                 {
+                    GameObject space = Gameplay._instance.pressSpace;
                     playerReady = true;
-                    Gameplay._instance.pressSpace.SetActive(false);
+                    space.SetActive(false);
+                    space.GetComponent<SpaceMovement>().transform.position = space.GetComponent<SpaceMovement>().startPosition;
                     if (!isServer)
                         GetComponent<NetworkingBrain>().CmdPlayerReadySync(playerReady);
                     else

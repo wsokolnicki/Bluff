@@ -485,7 +485,10 @@ public class Gameplay : NetworkBehaviour
             player.GetComponent<Player>().particlePlusOne.SetActive(true);
 
         if (listOfPlayersThatLost.Count != numberOfPlayers - 1 && !localPlayer.GetComponent<Player>().playerLost)
+        {
             pressSpace.SetActive(true);
+            FindObjectOfType<SpaceMovement>().GetComponent<SpaceMovement>().moveSpace = true;
+        }
     }
  
 
