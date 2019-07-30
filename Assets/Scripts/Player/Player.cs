@@ -12,6 +12,7 @@ public class Player : NetworkBehaviour
     //cache
     [SerializeField] Text playerNameText;
     [SerializeField] GameObject playerNameGO;
+    [SerializeField] GameObject playersTurn;
     public GameObject particlePlusOne;
 
     public int noOfCardsInHand = 1;
@@ -44,9 +45,15 @@ public class Player : NetworkBehaviour
         currentPlayer = isCurrentPlayer;
 
         if (currentPlayer)
+        {
             GetComponent<SpriteRenderer>().color = Color.green;
+            playersTurn.SetActive(true);
+        }
         else
+        {
             GetComponent<SpriteRenderer>().color = Color.white;
+            playersTurn.SetActive(false);
+        }
 
         if (isLocalPlayer)
             TurnCheckButtonOn_Off(currentPlayer);
@@ -75,21 +82,25 @@ public class Player : NetworkBehaviour
 
     public void SetPlayerNameLocationOnBoard(float angle)
     {
-        float nameRadiusX = 2f;
+        float nameRadiusX = 0.5f;
         float nameRadiusY = 1.3f;
         var position = playersNameEllipse(angle, transform.position, nameRadiusY, nameRadiusX);
         playerNameGO.transform.position = position;
-        SetTextAlignment(playerNameGO);
-        Debug.Log((Camera.main.WorldToViewportPoint(playerNameGO.transform.position).x));
+        //SetTextAlignment(playerNameGO);
     }
-    void SetTextAlignment(GameObject name)
+    public void SetTextAlignment(/*GameObject name*/)
     {
-        if((Camera.main.WorldToViewportPoint(name.transform.position).x == 0.5f))
-            playerNameGO.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
-        else if(Camera.main.WorldToViewportPoint(name.transform.position).x < 0.5f)
-            playerNameGO.GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
+        float offset = 1.3f;
+        //if((Camera.main.WorldToViewportPoint(name.transform.position).x == 0.5f))
+        //    playerNameGO.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
+        //else if(Camera.main.WorldToViewportPoint(name.transform.position).x < 0.5f)
+        //    playerNameGO.GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
+        //else
+        //    playerNameGO.GetComponent<Text>().alignment = TextAnchor.MiddleRight;   
+        if ((Camera.main.WorldToViewportPoint(transform.position).y >= 0.5f))
+            playerNameGO.transform.Translate(0, -offset, 0);
         else
-            playerNameGO.GetComponent<Text>().alignment = TextAnchor.MiddleRight;   
+            playerNameGO.transform.Translate(0, offset, 0);
     }
     Vector3 playersNameEllipse(float ang, Vector3 center, float radiusA, float radiusB)
     {

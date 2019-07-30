@@ -23,6 +23,7 @@ public class Draggable : MonoBehaviour
     {
         if (!playersChild)
             return;
+
         startingCardPosition = transform.position;
         parentWhichIsHand = this.transform.parent;
 
@@ -50,9 +51,7 @@ public class Draggable : MonoBehaviour
         {
             this.transform.SetParent(parentWhichIsHand);
             transform.SetSiblingIndex(placeholder.transform.GetSiblingIndex());
-
-            //GetComponent<CanvasGroup>().blocksRaycasts = true;
-
+         
             Destroy(placeholder);
 
             yield return new WaitForEndOfFrame();
@@ -84,10 +83,4 @@ public class Draggable : MonoBehaviour
             }
         }
     }
-
-    //public void ChceckIfChildOfAPlayer(GameObject player)
-    //{
-    //    if (player.GetComponent<NetworkIdentity>().isLocalPlayer)
-    //        playersChild = true;
-    //}
 }

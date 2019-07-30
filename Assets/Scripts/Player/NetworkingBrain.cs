@@ -61,7 +61,7 @@ public class NetworkingBrain : NetworkBehaviour
     [ClientRpc]
     public void RpcRestartGame()
     {
-        Gameplay._instance.RestartGameAction();
+        StartCoroutine(Gameplay._instance.RestartGameAction());
     }
 
     [Command]

@@ -18,6 +18,7 @@ public class Gameplay : NetworkBehaviour
     [SerializeField] Text winner;
     [SerializeField] GameObject winScreen;
     [SerializeField] GameObject arrowPrefab;
+    [SerializeField] Text cardsNo;
     public GameObject pressSpace;
     public GameObject checkButton;
     public GameObject buttonParent;
@@ -38,6 +39,7 @@ public class Gameplay : NetworkBehaviour
     [HideInInspector] public int noOfCardsInDeck;
 
     NetworkingBrain networkLocalPlayer;
+    int tottalAmountOfCardsInGameThisRound = 0;
 
     [Header("SyncVar Variables")]
     [SyncVar(hook = "OnCurrentPlayerIndexChange")] public int currentPlayerIndex;
@@ -62,9 +64,15 @@ public class Gameplay : NetworkBehaviour
             secondCardValue = sCV;
         }
 
-        public string GetVariables()
+        public string GetVariablesString()
         {
             return (actionValue.ToString() + " " + firstCardValue.ToString() + " " + secondCardValue.ToString());
+        }
+
+        public int[] GetVariables()
+        {
+            int[] variables = { actionValue, firstCardValue, secondCardValue };
+            return variables;
         }
     }
 
@@ -111,6 +119,8 @@ public class Gameplay : NetworkBehaviour
         lastChosenValueText.text = NamingCards.SelectedValue
             (chosenVariant.actionValue, chosenVariant.firstCardValue, chosenVariant.secondCardValue);
 
+        cardsNo.text = tottalAmountOfCardsInGameThisRound.ToString();
+
         if (isServer)
         {// Loop that checks all the players if they are ready for next round
             for (int i = 0; i < playerArray.Count; i++)
@@ -156,7 +166,8 @@ public class Gameplay : NetworkBehaviour
             var position = Ellipse(ang, center, 3.5f, 5f);
             playerArray[x].transform.position = position;
             playerArray[x].transform.SetParent(GameObject.Find("Players").transform);
-            playerArray[x].GetComponent<Player>().SetPlayerNameLocationOnBoard(ang);
+            //playerArray[x].GetComponent<Player>().SetPlayerNameLocationOnBoard(ang);
+            playerArray[x].GetComponent<Player>().SetTextAlignment();
             playerArray[x].name = playerArray[x].GetComponent<Player>().playerName;
             x++;
             z++;
@@ -197,7 +208,7 @@ public class Gameplay : NetworkBehaviour
         //Wait until deck is created (necessary due to delay between server and clients - server generates Random.seed)
         yield return new WaitUntil(() => deck.transform.childCount == noOfCardsInDeck);
         deckCreated = true;
-        int tottalAmountOfCardsInGameThisRound = 0;
+        tottalAmountOfCardsInGameThisRound = 0;
         foreach (GameObject player in playerArray)
         {
             Player plr = player.GetComponent<Player>();
@@ -512,13 +523,33 @@ public class Gameplay : NetworkBehaviour
     {
         RestartGameAction();
     }
-    public void RestartGameAction()
+    bool CheckIfReadyToStartNewRound()
     {
+        int[] variablesNecesaryToStartNewRound = { 0, 0, 0 };
+        int arrayLength = variablesNecesaryToStartNewRound.Length;
+        int x = 0;
+        for (int i =0; i< arrayLength; i++)
+        {
+            if (chosenVariant.GetVariables()[i] == variablesNecesaryToStartNewRound[i])
+                x++;
+        }
+        if (x < arrayLength)
+        {
+            chosenVariant = new ChosenVariant(0, 0, 0);
+            return true;
+        }
+
+        return (x == arrayLength) ? true : false;
+    }
+    public IEnumerator RestartGameAction()
+    {
+        yield return new WaitUntil(() => CheckIfReadyToStartNewRound());
+
         checkButton.gameObject.SetActive(false);
         roundEnd = false;
         playersReady = false;
         playerLostRound.GetComponent<Player>().particlePlusOne.SetActive(false);
-        playerLostRound = new GameObject();
+        //playerLostRound = new GameObject();
 
         //Destroying all arrows
         GameObject[] arrows = GameObject.FindGameObjectsWithTag("Arrow");

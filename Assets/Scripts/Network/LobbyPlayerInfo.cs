@@ -16,6 +16,7 @@ public class LobbyPlayerInfo : NetworkLobbyPlayer
     [SerializeField] Image readyImage;
 
     [SyncVar] public bool playerReady = false;
+    //[SyncVar] public bool isHost = false;
 
     [SyncVar(hook = "OnMyName")] public string playerName;
 
