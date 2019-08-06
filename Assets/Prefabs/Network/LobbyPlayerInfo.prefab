@@ -328,7 +328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &698168135372004301
 RectTransform:
   m_ObjectHideFlags: 0
@@ -503,7 +503,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 547385214538792137}
   m_TextComponent: {fileID: 1150667243271989567}
   m_Placeholder: {fileID: 7690190194988037072}
@@ -800,7 +800,9 @@ MonoBehaviour:
   playerNameText: {fileID: 8981251941224768451}
   readyButton: {fileID: 5620696726782661794}
   readyImage: {fileID: 5630957080243005634}
+  noOfCards: {fileID: 9130166631234393990}
   playerReady: 0
+  isHost: 0
   playerName: 
 --- !u!1 &8981251941224768449
 GameObject:

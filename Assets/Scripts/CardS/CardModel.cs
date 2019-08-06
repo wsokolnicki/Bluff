@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 #pragma warning disable 0649
 
 public class CardModel : MonoBehaviour
@@ -17,6 +18,7 @@ public class CardModel : MonoBehaviour
 
     //For adding arrows after check option
     [HideInInspector] public Vector3 playerPosition;
+    //public Text playerName;
 
     //For handling cards
     [HideInInspector] public bool handling = false;

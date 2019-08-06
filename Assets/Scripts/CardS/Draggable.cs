@@ -65,8 +65,7 @@ public class Draggable : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        Vector2 mousePosition = new Vector2(Input.mousePosition.x,
-            Input.mousePosition.y);
+        Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         Vector2 cardPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         if (playersChild)

@@ -13,7 +13,7 @@ public class LobbyPlayerList : MonoBehaviour
     [SerializeField] RectTransform playerListRectTransform;
 
     protected VerticalLayoutGroup _layout;
-    protected List<LobbyPlayerInfo> _players = new List<LobbyPlayerInfo>();
+    /*protected*/public List<LobbyPlayerInfo> _players = new List<LobbyPlayerInfo>();
 
     private void OnEnable()
     {

@@ -14,10 +14,11 @@ public class LobbyPlayerInfo : NetworkLobbyPlayer
     [SerializeField] Text playerNameText;
     [SerializeField] Button readyButton; 
     [SerializeField] Image readyImage;
+    [SerializeField] InputField noOfCards;
 
     [SyncVar] public bool playerReady = false;
-    //[SyncVar] public bool isHost = false;
 
+    /*[SyncVar(hook = "HostSync")] public*/ bool isHost = false;
     [SyncVar(hook = "OnMyName")] public string playerName;
 
     public void OnMyName(string name)
@@ -56,6 +57,9 @@ public class LobbyPlayerInfo : NetworkLobbyPlayer
     private void SetupOtherPlayer()
     {
         SyncPlayerName(playerName);
+
+        noOfCards.interactable = isHost;
+
         playerNameText.text = playerName;
         readyButton.transform.GetChild(0).GetComponent<Text>().text = "...";
         readyButton.interactable = false;
@@ -68,6 +72,14 @@ public class LobbyPlayerInfo : NetworkLobbyPlayer
 
     void SetupLocalPlayer()
     {
+        if (LobbyManager._singelton._playerNumber == 1)
+        {
+            isHost = true;
+            noOfCards.interactable = true;
+        }
+        else
+            noOfCards.interactable = false;
+
         SetLocalPlayerGreen();
 
         CmdNameChange(PlayerInfo.playerName);
