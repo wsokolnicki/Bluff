@@ -89,27 +89,27 @@ public class ButtonValue : MonoBehaviour
                     }
                 }
             }
-            else if (action == 8)
+        }
+        else if (action == 8)
+        {
+            if (gameObject.tag.Equals("HasChildren"))
             {
-                if (gameObject.tag.Equals("HasChildren"))
+                if (this.firstCardNumber < firstCard)
                 {
-                    if (this.firstCardNumber < firstCard)
-                    {
-                        TurnOn_OffTheButton();
-                    }
-                }
-                else if (gameObject.tag.Equals("Children"))
-                {
-                    if (secondCard >= this.secondCardNumber && this.firstCardNumber == firstCard)
-                    {
-                        TurnOn_OffTheButton();
-                    }
+                    TurnOn_OffTheButton();
                 }
             }
-            else if (this.firstCardNumber <= firstCard)
+            else if (gameObject.tag.Equals("Children"))
             {
-                TurnOn_OffTheButton();
+                if (secondCard >= this.secondCardNumber && this.firstCardNumber == firstCard)
+                {
+                    TurnOn_OffTheButton();
+                }
             }
+        }
+        else if (this.firstCardNumber <= firstCard)
+        {
+            TurnOn_OffTheButton();
         }
     }
     private void TurnOn_OffTheButton()

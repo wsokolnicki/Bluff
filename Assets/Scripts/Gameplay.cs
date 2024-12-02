@@ -9,10 +9,9 @@ public class Gameplay : NetworkBehaviour
 
     [HideInInspector] public static Gameplay _instance = null;
     private CardStackView cardSView = null;
-    [Header("Cache")]
-    [Header("-Classes")]
+    [Header("Classes")]
     [SerializeField] CardStack dealer = null;
-    [Header("-Game Objects")]
+    [Header("Game Objects")]
     [SerializeField] private GameObject deck = null;
     [SerializeField] private GameObject checkedCardSingle= null;
     [SerializeField] private GameObject checkedCardsDoubleUP = null;
@@ -22,11 +21,11 @@ public class Gameplay : NetworkBehaviour
     public GameObject PressSpace = null;
     public GameObject CheckButtonObject = null;
     //public GameObject buttonParent;
-    [Header("-UI")]
+    [Header("UI")]
     [SerializeField] private Text lastChosenValueText = null;
     [SerializeField] private Text winner = null;
     [SerializeField] private Text cardsNo = null;
-    [Header("-Variables")]
+    [Header("Variables")]
     [SerializeField] private float delayBetweenCardsHandling = 0f;
     [SerializeField] private float timeForHandlingCards = 2f;
     [HideInInspector] public bool PlayersReady = false;
