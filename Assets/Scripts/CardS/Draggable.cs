@@ -1,18 +1,15 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEngine.Networking;
 
 public class Draggable : MonoBehaviour
 {
-    Transform parentWhichIsHand;
-    Vector2 startingCardPosition;
-    CardModel cardModel;
-    GameObject placeholder;
-    int sortOrder;
-    [HideInInspector] public bool playersChild = false;
+    private Transform parentWhichIsHand = null;
+    private Vector2 startingCardPosition = new Vector2(0,0);
+    private CardModel cardModel = null;
+    private GameObject placeholder = null;
+    private int sortOrder = 0;
+    [HideInInspector] public bool PlayersChild = false;
 
     private void Start()
     {
@@ -21,8 +18,10 @@ public class Draggable : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!playersChild)
+        if (!PlayersChild)
+        {
             return;
+        }
 
         startingCardPosition = transform.position;
         parentWhichIsHand = this.transform.parent;
@@ -30,12 +29,12 @@ public class Draggable : MonoBehaviour
         placeholder = new GameObject();
         placeholder.name = "PLACEHOLDER";
         placeholder.transform.SetParent(this.transform.parent);
-        LayoutElement le = placeholder.AddComponent<LayoutElement>();
+        LayoutElement _le = placeholder.AddComponent<LayoutElement>();
         placeholder.GetComponent<RectTransform>().sizeDelta = new Vector2(1.25f, 1.3333389f);
-        le.preferredWidth = this.GetComponent<LayoutElement>().preferredWidth + 1;
-        le.preferredHeight = this.GetComponent<LayoutElement>().preferredHeight;
-        le.flexibleWidth = 0;
-        le.flexibleHeight = 0;
+        _le.preferredWidth = this.GetComponent<LayoutElement>().preferredWidth + 1;
+        _le.preferredHeight = this.GetComponent<LayoutElement>().preferredHeight;
+        _le.flexibleWidth = 0;
+        _le.flexibleHeight = 0;
 
         placeholder.transform.SetSiblingIndex(this.transform.GetSiblingIndex());
 
@@ -47,7 +46,7 @@ public class Draggable : MonoBehaviour
 
     private IEnumerator OnMouseUp()
     {
-        if (cardModel.faceUp && playersChild)
+        if (cardModel.FaceUp && PlayersChild)
         {
             this.transform.SetParent(parentWhichIsHand);
             transform.SetSiblingIndex(placeholder.transform.GetSiblingIndex());
@@ -68,7 +67,7 @@ public class Draggable : MonoBehaviour
         Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         Vector2 cardPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        if (playersChild)
+        if (PlayersChild)
         {
             transform.position = cardPosition;
 

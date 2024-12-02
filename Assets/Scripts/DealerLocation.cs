@@ -1,15 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DealerLocation : MonoBehaviour
 {
-    [SerializeField] float xpos = 0.9f;
-    [SerializeField] float ypos = 0.1f;
+    [SerializeField] private float xpos = 0.9f;
+    [SerializeField] private float ypos = 0.1f;
 
     void Start()
     {
-        transform.position = Camera.main.ViewportToWorldPoint
-            (new Vector3(xpos, ypos, 0));
+        transform.position = Camera.main.ViewportToWorldPoint(new Vector3(xpos, ypos, 0));
     }
 }

@@ -1,34 +1,28 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-#pragma warning disable 0649
 
 public class CardModel : MonoBehaviour
 {
-    SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer = null;
 
-    [SerializeField] Sprite[] faces;
-    [SerializeField] Sprite cardBack;
+    [SerializeField] private Sprite[] faces = new Sprite[24];
+    [SerializeField] private Sprite cardBack = null;
 
-    public int cardIndex;
-    [HideInInspector] public int cardValue, cardSuit;
-    public bool faceUp = false;
-    [HideInInspector] public bool flipAnimation;
+    public int CardIndex = 0;
+    private int cardValue, cardSuit = 0;
+    public bool FaceUp = false;
+    [HideInInspector] public bool flipAnimation = false;
 
     //For adding arrows after check option
-    [HideInInspector] public Vector3 playerPosition;
+    [HideInInspector] public Vector3 PlayerPosition = Vector3.zero;
     //public Text playerName;
 
     //For handling cards
-    [HideInInspector] public bool handling = false;
-    float handlingSpeed;
-    GameObject player;
-
-    void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+    [HideInInspector] public bool Handling = false;
+    private float handlingSpeed = 0f;
+    private GameObject player = null;
+    
+    [HideInInspector] public Transform CardCopyInPlayerHand = null;
 
     public int CardValue
     {
@@ -42,15 +36,23 @@ public class CardModel : MonoBehaviour
         get { return cardSuit; }
     }
 
+    void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     private void Update()
     {
-        if (!handling)
+        if (!Handling)
+        {
             return;
+        }
 
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, handlingSpeed * Time.deltaTime);
+
         if (transform.position == player.transform.position)
         {
-            handling = false;
+            Handling = false;
             transform.SetParent(player.transform.GetChild(1).transform.GetChild(1));
             GetComponent<SpriteRenderer>().sortingOrder = transform.parent.childCount;
         }
@@ -60,20 +62,20 @@ public class CardModel : MonoBehaviour
     {
         handlingSpeed = (player.transform.position - transform.position).magnitude / delayBetweenCards;
         this.player = player;
-        handling = true;
+        Handling = true;
     }
 
     public void ToggleFace(bool showFace)
     {
         if (showFace)
         {
-            spriteRenderer.sprite = faces[cardIndex];
-            faceUp = true;
+            spriteRenderer.sprite = faces[CardIndex];
+            FaceUp = true;
         }
         else
         {
             spriteRenderer.sprite = cardBack;
-            faceUp = false;
+            FaceUp = false;
         }
     }
 
@@ -88,7 +90,9 @@ public class CardModel : MonoBehaviour
             transform.Rotate(0, flipDegree, 0);
 
             if (transform.eulerAngles.y < 0)
+            {
                 flipped = true;
+            }
 
             if (transform.eulerAngles.y == 90)
             {
@@ -100,5 +104,3 @@ public class CardModel : MonoBehaviour
         flipAnimation = false;
     }
 }
-
-#pragma warning restore 0649

@@ -10,12 +10,36 @@ public class NamingCards : MonoBehaviour
     //    Full_House, Four_OfAKind, Small_RoyalFlush, Big_RoyalFlush
     //}
     static string[] actionNames =
-        {"None", "High Card:", "One Pair:", "Two Pairs:", "Three Of A Kind:", "Small Straight:", "Big Straight:", "Flush:",
-            "Full House:", "Four Of A Kind:", "Small Royal Flush:", "Big Royal Flush:"};
+    {
+        "None",
+        "High Card:",
+        "One Pair:",
+        "Two Pairs:",
+        "Three Of A Kind:",
+        "Small Straight:",
+        "Big Straight:",
+        "Flush:",
+        "Full House:",
+        "Four Of A Kind:",
+        "Small Royal Flush:",
+        "Big Royal Flush:"
+    };
     enum Card
-    { Nine, Ten, Jack, Queen, King, Ace }
+    { 
+        Nine,
+        Ten,
+        Jack,
+        Queen,
+        King,
+        Ace
+    }
     enum Suit
-    { Diamond, Clubs, Hearts, Spades }
+    { 
+        Diamond,
+        Clubs,
+        Hearts,
+        Spades 
+    }
 
     public static int AddingSuitsValuesToCards(int cardIndex)
     {
@@ -74,10 +98,5 @@ public class NamingCards : MonoBehaviour
             return (actionNames[actionNumber] + " " + colour);
         else
             return (actionNames[actionNumber] + " " + firstCard);
-    }
-
-    public static int ReturnActionNumber()
-    {
-        return 0;
     }
 }

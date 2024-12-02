@@ -1,28 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using UnityEngine.Networking;
-#pragma warning disable 618
 
 public class EscapePanel : MonoBehaviour
 {
-    public GameObject escapePanel;
-    [HideInInspector] public bool escapePanelActive = false;
+    public GameObject EscapePanelObject = null;
+    [HideInInspector] public bool EscapePanelActive = false;
 
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            escapePanel.gameObject.SetActive(!escapePanelActive);
-            escapePanelActive = !escapePanelActive;
+            EscapePanelObject.gameObject.SetActive(!EscapePanelActive);
+            EscapePanelActive = !EscapePanelActive;
         }
     }
 
     public void ReturnButton()
     {
-        escapePanel.SetActive(escapePanelActive);
-        escapePanelActive = !escapePanelActive;
+        EscapePanelObject.SetActive(EscapePanelActive);
+        EscapePanelActive = !EscapePanelActive;
     }
 
     public void MainMenuButton()

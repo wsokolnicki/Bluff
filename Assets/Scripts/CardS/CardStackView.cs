@@ -1,17 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-#pragma warning disable 0649
+﻿using UnityEngine;
 
 public class CardStackView : MonoBehaviour
 {
-    CardStack deck;
+    private CardStack deck = null;
 
-    public GameObject cardPrefab;
-    [SerializeField] float cardOffset;
+    public GameObject CardPrefab = null;
+    [SerializeField] private float cardOffset = 0.0025f;
 
-    int lastCount;
-    public bool faceUp = false;
+    private int lastCount = 0;
+    public bool FaceUp = false;
 
     void Start()
     {
@@ -47,14 +44,14 @@ public class CardStackView : MonoBehaviour
 
     void AddCard(int cardIndex, Vector3 position, int positionalIndex)
     {
-        GameObject cardCopy = Instantiate(cardPrefab) as GameObject;
+        GameObject cardCopy = Instantiate(CardPrefab) as GameObject;
 
         CardModel cardModel = cardCopy.GetComponent<CardModel>();
-        cardModel.cardIndex = cardIndex;
+        cardModel.CardIndex = cardIndex;
         cardModel.CardSuit = NamingCards.AddingSuitsValuesToCards(cardIndex);
         cardModel.CardValue = NamingCards.AddingValuesToCards(cardIndex);
 
-        if (deck.isGameDeck)
+        if (deck.IsGameDeck)
         {
             cardCopy.transform.SetParent(GameObject.FindGameObjectWithTag("Deck").transform);
             cardCopy.name = NamingCards.CardNaming(cardModel.CardValue, cardModel.CardSuit);
@@ -67,5 +64,3 @@ public class CardStackView : MonoBehaviour
         cardCopy.GetComponent<SpriteRenderer>().sortingOrder = positionalIndex + 1;
     }
 }
-
-#pragma warning restore 0649

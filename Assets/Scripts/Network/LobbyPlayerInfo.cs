@@ -1,30 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
-using System;
-#pragma warning disable 618
-#pragma warning disable 0649
 
 public class LobbyPlayerInfo : NetworkLobbyPlayer
 {
     public static LobbyPlayerInfo _instace;
 
-    [SerializeField] Text playerNameText;
-    [SerializeField] Button readyButton; 
-    [SerializeField] Image readyImage;
-    [SerializeField] InputField noOfCards;
+    [SerializeField] private Text playerNameText = null;
+    [SerializeField] private Button readyButton = null; 
+    [SerializeField] private Image readyImage = null;
+    [SerializeField] private InputField noOfCards = null;
 
-    [SyncVar] public bool playerReady = false;
+    [SyncVar] public bool PlayerReady = false;
 
-    /*[SyncVar(hook = "HostSync")] public*/ bool isHost = false;
-    [SyncVar(hook = "OnMyName")] public string playerName;
+    private bool isHost = false;
+    [SyncVar(hook = "OnMyName")] public string PlayerName = "";
 
     public void OnMyName(string name)
     {
-        playerName = name;
-        playerNameText.text = playerName;
+        PlayerName = name;
+        playerNameText.text = PlayerName;
     }
 
     private void OnEnable()
@@ -36,7 +31,10 @@ public class LobbyPlayerInfo : NetworkLobbyPlayer
     {
         base.OnClientEnterLobby();
 
-        if (LobbyManager._singelton != null) LobbyManager._singelton.OnPlayerNumberModified(1);
+        if (LobbyManager._singelton != null)
+        {
+            LobbyManager._singelton.OnPlayerNumberModified(1);
+        }
 
         LobbyPlayerList._instance.AddPlayer(this);
 
@@ -45,7 +43,7 @@ public class LobbyPlayerInfo : NetworkLobbyPlayer
         else
             SetupOtherPlayer();
                 
-        OnMyName(playerName);
+        OnMyName(PlayerName);
     }
 
     public override void OnStartAuthority()
@@ -56,15 +54,15 @@ public class LobbyPlayerInfo : NetworkLobbyPlayer
 
     private void SetupOtherPlayer()
     {
-        SyncPlayerName(playerName);
+        SyncPlayerName(PlayerName);
 
-        noOfCards.interactable = isHost;
+        //noOfCards.interactable = isHost;
 
-        playerNameText.text = playerName;
+        playerNameText.text = PlayerName;
         readyButton.transform.GetChild(0).GetComponent<Text>().text = "...";
         readyButton.interactable = false;
 
-        if (!playerReady)
+        if (!PlayerReady)
             OnClientReady(false);
         else
             OnClientReady(true);
@@ -72,18 +70,18 @@ public class LobbyPlayerInfo : NetworkLobbyPlayer
 
     void SetupLocalPlayer()
     {
-        if (LobbyManager._singelton._playerNumber == 1)
-        {
-            isHost = true;
-            noOfCards.interactable = true;
-        }
-        else
-            noOfCards.interactable = false;
+        //if (LobbyManager._singelton._playerNumber == 1)
+        //{
+        //    isHost = true;
+        //    noOfCards.interactable = true;
+        //}
+        //else
+        //    noOfCards.interactable = false;
 
         SetLocalPlayerGreen();
 
         CmdNameChange(PlayerInfo.playerName);
-        playerNameText.text = playerName;
+        playerNameText.text = PlayerName;
 
         readyButton.transform.GetChild(0).GetComponent<Text>().text = "Ready";
         readyButton.interactable = true;
@@ -102,7 +100,7 @@ public class LobbyPlayerInfo : NetworkLobbyPlayer
 
     public void SyncPlayerName(string name)
     {
-        playerName = name;
+        PlayerName = name;
     }
 
     public void ToggleReadyButton(bool enabled)
@@ -119,13 +117,15 @@ public class LobbyPlayerInfo : NetworkLobbyPlayer
     {
         if(readyState)
         {
-            playerReady = readyState;
+            PlayerReady = readyState;
             SetPlayerReady();
         }
         else
         {
             if (LobbyManager._singelton._playerNumber >= LobbyManager._singelton.minPlayers)
+            {
                 readyButton.gameObject.SetActive(true);
+            }
 
             readyButton.transform.GetChild(0).GetComponent<Text>().text = isLocalPlayer ? "Ready" : "...";
             readyButton.interactable = isLocalPlayer;
@@ -142,14 +142,14 @@ public class LobbyPlayerInfo : NetworkLobbyPlayer
     [Command]
     public void CmdNameChange(string name)
     {
-        playerName = name;
+        PlayerName = name;
     }
 
     [ClientRpc]
     public void RpcUpdateCountdown(int countdown)
     {
-        LobbyManager._singelton.countdownPanel.UIText.text = "Match Starting in " + countdown;
-        LobbyManager._singelton.countdownPanel.gameObject.SetActive(countdown != 0);
+        LobbyManager._singelton.CountdownPanel.UIText.text = "Match Starting in " + countdown;
+        LobbyManager._singelton.CountdownPanel.gameObject.SetActive(countdown != 0);
     }
 
     public void OnDestroy()
@@ -158,5 +158,3 @@ public class LobbyPlayerInfo : NetworkLobbyPlayer
         if (LobbyManager._singelton != null) LobbyManager._singelton.OnPlayerNumberModified(-1);
     }
 }
-
-#pragma warning restore 0649 

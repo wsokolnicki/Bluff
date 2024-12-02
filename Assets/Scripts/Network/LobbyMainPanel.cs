@@ -1,13 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-#pragma warning disable 618
-#pragma warning disable 0649
+﻿using UnityEngine;
 
 public class LobbyMainPanel : MonoBehaviour
 {
-    [SerializeField] LobbyManager lobbyManager;
-    [SerializeField] RectTransform lobbyServerList;
+    [SerializeField] LobbyManager lobbyManager = null;
+    [SerializeField] RectTransform lobbyServerList = null;
 
     public void OnMainMenuButtonClick()
     {
@@ -37,5 +33,3 @@ public class LobbyMainPanel : MonoBehaviour
         lobbyManager.ChangeTo(lobbyServerList);
     }
 }
-
-#pragma warning restore 0649

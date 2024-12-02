@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking.Match;
-using UnityEngine.Networking.Types;
-#pragma warning disable 618
-#pragma warning disable 0649
 
 public class LobbyServerList : MonoBehaviour
 {
-    [SerializeField] LobbyManager lobbyManager;
-    [SerializeField] RectTransform serverListRect;
-    [SerializeField] GameObject serverInfoPrefab;
-    [SerializeField] GameObject noServersFound;
+    [SerializeField] private LobbyManager lobbyManager = null;
+    [SerializeField] private RectTransform serverListRect = null;
+    [SerializeField] private GameObject serverInfoPrefab = null;
+    [SerializeField] private GameObject noServersFound = null;
 
     private void OnEnable()
     {
@@ -29,8 +24,10 @@ public class LobbyServerList : MonoBehaviour
     private void DestroyAllMatches()
     {
         GameObject[] matches = GameObject.FindGameObjectsWithTag("Server");
-        foreach(GameObject match in matches)
+        foreach (GameObject match in matches)
+        {
             Destroy(match);
+        }
     }
 
     public void OnGUIMatchList(bool succes, string extendedInfo, List<MatchInfoSnapshot> matches)
@@ -51,5 +48,3 @@ public class LobbyServerList : MonoBehaviour
         }
     }
 }
-
-#pragma warning restore 0649

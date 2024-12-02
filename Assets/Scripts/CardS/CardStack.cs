@@ -1,51 +1,54 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-#pragma warning disable 0649
 
 public class CardStack : MonoBehaviour
 {
     //cache
-    CardStackView dealer;
-    [Header("Necessary for Dealer only")] [SerializeField] Gameplay gameplay;
+    private CardStackView dealer = null;
+    [Header("Necessary for Dealer only")] [SerializeField] Gameplay gameplay = null;
 
-    public List<int> cards;
-    public int playerIndex;
+    public List<int> Cards = new List<int>();
+    public int PlayerIndex = 0;
 
     //state
-    public bool isGameDeck;
-    public bool mainPlayer;
+    public bool IsGameDeck = false;
+    public bool MainPlayer = false;
 
     void Start()
     {
         dealer = GetComponent<CardStackView>();
+        Cards = new List<int>();
 
-        cards = new List<int>();
-        if (isGameDeck)
+        if (IsGameDeck)
+        {
             StartCoroutine(CreateDeck());
+        }
     }
 
     public bool HasCards
     {
         get
-        { return cards != null && cards.Count > 0; }
+        { return Cards != null && Cards.Count > 0; }
     }
 
     public int CardCount
     {
         get
         {
-            if (cards == null)
+            if (Cards == null)
                 return 0;
             else
-                return cards.Count;
+                return Cards.Count;
         }
     }
 
     public IEnumerable<int> GetCards()
     {
-        foreach (int i in cards)
-        { yield return i; }
+        foreach (int i in Cards)
+        { 
+            yield return i; 
+        }
     }
 
     public IEnumerator CreateDeck()
@@ -54,23 +57,22 @@ public class CardStack : MonoBehaviour
 
         Random.InitState(System.Environment.TickCount);
         Random.InitState(Gameplay._instance.randomSeed);
-        cards.Clear();
+        Cards.Clear();
 
         for (int i = 0; i < 24; i++)
-        { cards.Add(i); }
+        { 
+            Cards.Add(i); 
+        }
 
-        int n = cards.Count;
+        int n = Cards.Count;
         Gameplay._instance.noOfCardsInDeck = n;
         while (n > 1)
         {
             n--;
             int k = Random.Range(0, n + 1);
-            int temp = cards[k];
-            cards[k] = cards[n];
-            cards[n] = temp;
+            int temp = Cards[k];
+            Cards[k] = Cards[n];
+            Cards[n] = temp;
         }
     }
 }
-
-#pragma warning restore 0649
-

@@ -1,16 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Networking.Match;
-#pragma warning disable 0649
 
 public class LobbyPlayerList : MonoBehaviour
 {
     public static LobbyPlayerList _instance;
 
-    [SerializeField] LobbyManager lobbyManager;
-    [SerializeField] RectTransform playerListRectTransform;
+    [SerializeField] private LobbyManager lobbyManager = null;
+    [SerializeField] private RectTransform playerListRectTransform = null;
 
     protected VerticalLayoutGroup _layout;
     /*protected*/public List<LobbyPlayerInfo> _players = new List<LobbyPlayerInfo>();
@@ -41,5 +38,3 @@ public class LobbyPlayerList : MonoBehaviour
         return _players.Count;
     }
 }
-
-#pragma warning restore 0649

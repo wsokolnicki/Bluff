@@ -1,33 +1,30 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
 using UnityEngine.Networking.Types;
-#pragma warning disable 618
-#pragma warning disable 0649
 
 public class LobbyManager : NetworkLobbyManager
 {
     public static LobbyManager _singelton;
 
-    protected ulong _currentMatchID;
+    protected ulong _currentMatchID = 0;
     protected bool _disconnectServer = false;
     [HideInInspector] public bool _isMatchmaking = false;
 
     [HideInInspector] public int _playerNumber = 0;
 
-    protected RectTransform currentPanel;
-    [SerializeField] float prematchCountdown = 3.0f;
+    protected RectTransform currentPanel = null;
+    [SerializeField] private float prematchCountdown = 3.0f;
 
     [Space]
     [Header("UI References")]
-    [SerializeField] RectTransform mainMenuPanel;
-    [SerializeField] RectTransform roomPanel;
-    [SerializeField] Button mainMenuButton;
-    [SerializeField] public LobbyCountdownPanel countdownPanel;
+    [SerializeField] private RectTransform mainMenuPanel = null;
+    [SerializeField] private RectTransform roomPanel = null;
+    [SerializeField] private Button mainMenuButton = null;
+    public LobbyCountdownPanel CountdownPanel = null;
 
     public delegate void BackButtonDelegate();
     public BackButtonDelegate backButtonDelegate;
@@ -153,7 +150,7 @@ public class LobbyManager : NetworkLobbyManager
         {
             LobbyPlayerInfo p = lobbySlots[i] as LobbyPlayerInfo;
 
-            if (p != null && !p.playerReady)
+            if (p != null && !p.PlayerReady)
                 p.ToggleReadyButton(numPlayers + 1 >= minPlayers);
         }
         return obj;
@@ -261,5 +258,3 @@ public class LobbyManager : NetworkLobbyManager
         ServerChangeScene(playScene);
     }
 }
-
-#pragma warning restore 0649

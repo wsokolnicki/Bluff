@@ -1,50 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
-using System;
-#pragma warning disable 618
-#pragma warning disable 0649
 
 public class Player : NetworkBehaviour
 {
     //cache
-    [SerializeField] Text playerNameText;
-    [SerializeField] GameObject playerNameGO;
-    [SerializeField] GameObject playersTurn;
-    public GameObject particlePlusOne;
+    [SerializeField] private Text playerNameText = null;
+    [SerializeField] private GameObject playerNameGO = null;
+    [SerializeField] private GameObject playersTurn = null;
+    public GameObject ParticlePlusOne = null;
 
-    public int noOfCardsInHand = 1;
-    public int currentNoOfCardsInHand;
+    public int NoOfCardsInHand = 1;
+    public int CurrentNoOfCardsInHand = 0;
     //state
     [SyncVar(hook = "OnStateChange")]
-    public bool currentPlayer = false;
+    public bool CurrentPlayer = false;
 
     [SyncVar(hook = "OnChangeName")]
-    public string playerName = "Player";
+    public string PlayerName = "Player";
 
     [SyncVar]
-    public int currentPlayerIndex;
+    public int CurrentPlayerIndex = 0;
 
     [SyncVar]
-    public bool playerReady = false;
+    public bool IsplayerReady = false;
 
     [SyncVar]
-    public bool playerLost = false;
+    public bool PlayerLost = false;
 
     // --------==== Hook Functions && Network ====-----------
     void OnChangeName(string name)
     {
-        playerName = name;
-        playerNameText.text = playerName;
+        PlayerName = name;
+        playerNameText.text = PlayerName;
     }
 
     void OnStateChange(bool isCurrentPlayer)
     {
-        currentPlayer = isCurrentPlayer;
+        CurrentPlayer = isCurrentPlayer;
 
-        if (currentPlayer)
+        if (CurrentPlayer)
         {
             GetComponent<SpriteRenderer>().color = Color.green;
             playersTurn.SetActive(true);
@@ -56,28 +51,28 @@ public class Player : NetworkBehaviour
         }
 
         if (isLocalPlayer)
-            TurnCheckButtonOn_Off(currentPlayer);
+            TurnCheckButtonOn_Off(CurrentPlayer);
     }
 
     [ClientRpc]
     public void RpcPlayerReadySync(bool ready)
     {
-        playerReady = ready;
+        IsplayerReady = ready;
         transform.Find("Player Ready").gameObject.SetActive(ready);
     }
     //---------------------------------------------
 
     public override void OnStartClient()
     {
-        OnChangeName(playerName);
-        OnStateChange(currentPlayer);
+        OnChangeName(PlayerName);
+        OnStateChange(CurrentPlayer);
         base.OnStartClient();
     }
 
     private void Start()
     {
         Gameplay._instance.playerArray.Add(gameObject);
-        playerNameText.text = playerName;
+        playerNameText.text = PlayerName;
     }
 
     public void SetPlayerNameLocationOnBoard(float angle)
@@ -117,22 +112,22 @@ public class Player : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            ButtonScript._inst.Show_HideAllActionButtons(currentPlayer);
+            ButtonScript._inst.Show_HideAllActionButtons(CurrentPlayer);
 
-            if (!Gameplay._instance.roundEnd || playerLost)
+            if (!Gameplay._instance.roundEnd || PlayerLost)
                 return;
             else
             {
                 if (Input.GetKeyUp(KeyCode.Space) || (Input.GetKeyUp(KeyCode.Mouse1)))
                 {
-                    GameObject space = Gameplay._instance.pressSpace;
-                    playerReady = true;
+                    GameObject space = Gameplay._instance.PressSpace;
+                    IsplayerReady = true;
                     space.SetActive(false);
-                    space.GetComponent<SpaceMovement>().transform.position = space.GetComponent<SpaceMovement>().startPosition;
+                    space.GetComponent<SpaceMovement>().transform.position = space.GetComponent<SpaceMovement>().StartPosition;
                     if (!isServer)
-                        GetComponent<NetworkingBrain>().CmdPlayerReadySync(playerReady);
+                        GetComponent<NetworkingBrain>().CmdPlayerReadySync(IsplayerReady);
                     else
-                        RpcPlayerReadySync(playerReady);
+                        RpcPlayerReadySync(IsplayerReady);
                 }
             }
         }
@@ -140,7 +135,7 @@ public class Player : NetworkBehaviour
 
     public void TurnCheckButtonOn_Off(bool isCurrentPlayer)
     {
-        Gameplay._instance.checkButton.SetActive(isCurrentPlayer);
+        Gameplay._instance.CheckButtonObject.SetActive(isCurrentPlayer);
     }
 
     public void TurnAllPlayerReadyFalse()
@@ -151,5 +146,3 @@ public class Player : NetworkBehaviour
             RpcPlayerReadySync(false);
     }
 }
-
-#pragma warning restore 0649

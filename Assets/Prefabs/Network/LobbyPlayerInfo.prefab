@@ -328,7 +328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &698168135372004301
 RectTransform:
   m_ObjectHideFlags: 0
@@ -801,9 +801,8 @@ MonoBehaviour:
   readyButton: {fileID: 5620696726782661794}
   readyImage: {fileID: 5630957080243005634}
   noOfCards: {fileID: 9130166631234393990}
-  playerReady: 0
-  isHost: 0
-  playerName: 
+  PlayerReady: 0
+  PlayerName: 
 --- !u!1 &8981251941224768449
 GameObject:
   m_ObjectHideFlags: 0

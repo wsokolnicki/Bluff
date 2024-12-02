@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameplay: {fileID: 0}
-  cards: 
-  playerIndex: 0
-  isGameDeck: 1
-  mainPlayer: 0
+  Cards: 
+  PlayerIndex: 0
+  IsGameDeck: 1
+  MainPlayer: 0
 --- !u!114 &2444571998953244686
 MonoBehaviour:
   m_ObjectHideFlags: 0

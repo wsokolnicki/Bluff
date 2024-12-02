@@ -171,12 +171,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439838}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -256.8127, y: -262.42816, z: 4.8454013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1244049208}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4112756
 GameObject:
@@ -325,7 +325,7 @@ MonoBehaviour:
   actionNumber: 2
   firstCardNumber: 6
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &4112762
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -560,7 +560,7 @@ MonoBehaviour:
   actionNumber: 9
   firstCardNumber: 4
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &9052999
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -795,7 +795,7 @@ MonoBehaviour:
   actionNumber: 7
   firstCardNumber: 3
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &33766171
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -951,7 +951,7 @@ MonoBehaviour:
   actionNumber: 7
   firstCardNumber: 4
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &40330127
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1261,7 +1261,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 6
   secondCardNumber: 5
-  active: 1
+  Active: 1
 --- !u!222 &98026920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1407,7 +1407,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 6
   secondCardNumber: 4
-  active: 1
+  Active: 1
 --- !u!222 &101741896
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1694,7 +1694,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 1
   secondCardNumber: 10
-  active: 1
+  Active: 1
 --- !u!1 &129931454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,7 +1921,7 @@ MonoBehaviour:
   actionNumber: 7
   firstCardNumber: 2
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &137355974
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2077,7 +2077,7 @@ MonoBehaviour:
   actionNumber: 4
   firstCardNumber: 6
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &141468363
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2302,7 +2302,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 3
   secondCardNumber: 1
-  active: 1
+  Active: 1
 --- !u!222 &181247872
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2458,7 +2458,7 @@ MonoBehaviour:
   actionNumber: 10
   firstCardNumber: 1
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &189016081
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2575,8 +2575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2676b4e94d8706b40a9468ac2561582f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escapePanel: {fileID: 1051483847}
-  escapePanelActive: 0
+  EscapePanelObject: {fileID: 205547854}
+  EscapePanelActive: 0
 --- !u!4 &205547856
 Transform:
   m_ObjectHideFlags: 0
@@ -2584,10 +2584,43 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205547854}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 443.27774, y: 250.97902, z: -6.4403887}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 186.46503, y: -11.449142, z: -1.5949874}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+  m_Father: {fileID: 1244049208}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &211569617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211569618}
+  m_Layer: 0
+  m_Name: === CARDS ON SCENE ===
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &211569618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211569617}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 256.8127, y: 262.42816, z: -4.8454013}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 660326620}
+  - {fileID: 1123299776}
+  - {fileID: 1926261512}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2948,7 +2981,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 3
   secondCardNumber: 10
-  active: 1
+  Active: 1
 --- !u!1 &228532652
 GameObject:
   m_ObjectHideFlags: 0
@@ -3086,7 +3119,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 5
   secondCardNumber: 6
-  active: 1
+  Active: 1
 --- !u!222 &228532657
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3541,7 +3574,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 4
   secondCardNumber: 6
-  active: 1
+  Active: 1
 --- !u!222 &241415180
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3749,7 +3782,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 5
   secondCardNumber: 10
-  active: 1
+  Active: 1
 --- !u!1 &246119855
 GameObject:
   m_ObjectHideFlags: 0
@@ -3949,7 +3982,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 4
   secondCardNumber: 10
-  active: 1
+  Active: 1
 --- !u!1 &263970897
 GameObject:
   m_ObjectHideFlags: 0
@@ -4097,7 +4130,7 @@ MonoBehaviour:
   actionNumber: 11
   firstCardNumber: 4
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &263970903
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4790,7 +4823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff6ad1a481fde14baf1cac8ba294de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionIndex: 20
+  ActionIndex: 0
   active: 1
 --- !u!1 &322592989
 GameObject:
@@ -5008,7 +5041,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 3
   secondCardNumber: 4
-  active: 1
+  Active: 1
 --- !u!222 &325284862
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5190,12 +5223,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341153862}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -256.8127, y: -262.42816, z: 4.8454013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 1244049208}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &347222244
 GameObject:
@@ -5344,7 +5377,7 @@ MonoBehaviour:
   actionNumber: 4
   firstCardNumber: 5
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &347222250
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5490,7 +5523,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 2
   secondCardNumber: 4
-  active: 1
+  Active: 1
 --- !u!222 &351334910
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5794,7 +5827,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 1
   secondCardNumber: 3
-  active: 1
+  Active: 1
 --- !u!222 &380270667
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5940,7 +5973,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 4
   secondCardNumber: 1
-  active: 1
+  Active: 1
 --- !u!222 &390164204
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6306,7 +6339,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 6
   secondCardNumber: 10
-  active: 1
+  Active: 1
 --- !u!1 &403370159
 GameObject:
   m_ObjectHideFlags: 0
@@ -6664,7 +6697,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 6
   secondCardNumber: 10
-  active: 1
+  Active: 1
 --- !u!1 &418938319
 GameObject:
   m_ObjectHideFlags: 0
@@ -7039,7 +7072,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 3
   secondCardNumber: 4
-  active: 1
+  Active: 1
 --- !u!222 &440070371
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7414,7 +7447,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 6
   secondCardNumber: 5
-  active: 1
+  Active: 1
 --- !u!222 &479163888
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7511,8 +7544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed5ce55f7e89acc4a899a70d3918cfe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpace: 0
-  startPosition: {x: 0, y: 0, z: 0}
+  MoveSpace: 0
+  StartPosition: {x: 0, y: 0, z: 0}
   speed: 1.5
 --- !u!1 &514014750
 GameObject:
@@ -7651,7 +7684,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 6
   secondCardNumber: 4
-  active: 1
+  Active: 1
 --- !u!222 &514014755
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7735,12 +7768,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -256.8127, y: -262.42816, z: -5.1545987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 1244049208}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &522062632
 GameObject:
@@ -7889,7 +7922,7 @@ MonoBehaviour:
   actionNumber: 11
   firstCardNumber: 2
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &522062638
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8035,7 +8068,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 2
   secondCardNumber: 1
-  active: 1
+  Active: 1
 --- !u!222 &539400032
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8260,7 +8293,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 1
   secondCardNumber: 4
-  active: 1
+  Active: 1
 --- !u!222 &544453651
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8485,7 +8518,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 6
   secondCardNumber: 1
-  active: 1
+  Active: 1
 --- !u!222 &561318938
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8938,7 +8971,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 2
   secondCardNumber: 3
-  active: 1
+  Active: 1
 --- !u!222 &623555616
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9163,7 +9196,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 1
   secondCardNumber: 3
-  active: 1
+  Active: 1
 --- !u!222 &652585529
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9195,12 +9228,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660326619}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -256.8127, y: -262.42816, z: 4.8454013}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 211569618}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &679782358
 GameObject:
@@ -9418,7 +9451,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 4
   secondCardNumber: 6
-  active: 1
+  Active: 1
 --- !u!222 &685626798
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9722,7 +9755,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 1
   secondCardNumber: 2
-  active: 1
+  Active: 1
 --- !u!222 &702066463
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10027,7 +10060,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 5
   secondCardNumber: 4
-  active: 1
+  Active: 1
 --- !u!222 &712949826
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10183,7 +10216,7 @@ MonoBehaviour:
   actionNumber: 9
   firstCardNumber: 5
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &718619579
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10329,7 +10362,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 4
   secondCardNumber: 2
-  active: 1
+  Active: 1
 --- !u!222 &722056922
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10564,7 +10597,7 @@ MonoBehaviour:
   actionNumber: 10
   firstCardNumber: 4
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &769940832
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10799,7 +10832,7 @@ MonoBehaviour:
   actionNumber: 4
   firstCardNumber: 4
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &772071620
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11007,7 +11040,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 2
   secondCardNumber: 10
-  active: 1
+  Active: 1
 --- !u!1 &796967289
 GameObject:
   m_ObjectHideFlags: 0
@@ -11145,7 +11178,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 6
   secondCardNumber: 3
-  active: 1
+  Active: 1
 --- !u!222 &796967294
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12578,7 +12611,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 4
   secondCardNumber: 2
-  active: 1
+  Active: 1
 --- !u!222 &954251821
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12724,7 +12757,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 2
   secondCardNumber: 3
-  active: 1
+  Active: 1
 --- !u!222 &960594923
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12932,7 +12965,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 3
   secondCardNumber: 10
-  active: 1
+  Active: 1
 --- !u!1 &970718670
 GameObject:
   m_ObjectHideFlags: 0
@@ -13576,8 +13609,8 @@ RectTransform:
   - {fileID: 507816937}
   - {fileID: 1051483848}
   - {fileID: 712618088}
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 1244049208}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13721,7 +13754,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 3
   secondCardNumber: 1
-  active: 1
+  Active: 1
 --- !u!222 &1028741909
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13976,8 +14009,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2676b4e94d8706b40a9468ac2561582f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escapePanel: {fileID: 0}
-  escapePanelActive: 0
+  EscapePanelObject: {fileID: 0}
+  EscapePanelActive: 0
 --- !u!1 &1058487040
 GameObject:
   m_ObjectHideFlags: 0
@@ -14115,7 +14148,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 6
   secondCardNumber: 2
-  active: 1
+  Active: 1
 --- !u!222 &1058487045
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14419,7 +14452,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 6
   secondCardNumber: 2
-  active: 1
+  Active: 1
 --- !u!222 &1069819607
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14575,7 +14608,7 @@ MonoBehaviour:
   actionNumber: 4
   firstCardNumber: 3
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &1092583627
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15007,15 +15040,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123299774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 4.8454013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 211569618}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -256.8127, y: -262.42816}
   m_SizeDelta: {x: 5.105, y: 1.462}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1130450602
@@ -15296,7 +15329,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 5
   secondCardNumber: 10
-  active: 1
+  Active: 1
 --- !u!1 &1145354562
 GameObject:
   m_ObjectHideFlags: 0
@@ -15513,7 +15546,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 4
   secondCardNumber: 5
-  active: 1
+  Active: 1
 --- !u!222 &1153244753
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16025,7 +16058,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 5
   secondCardNumber: 6
-  active: 1
+  Active: 1
 --- !u!222 &1192843683
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16171,7 +16204,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 5
   secondCardNumber: 3
-  active: 1
+  Active: 1
 --- !u!222 &1202279657
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16396,7 +16429,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 3
   secondCardNumber: 5
-  active: 1
+  Active: 1
 --- !u!222 &1210891169
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16621,7 +16654,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 4
   secondCardNumber: 1
-  active: 1
+  Active: 1
 --- !u!222 &1213430011
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16938,6 +16971,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242157961}
   m_CullTransparentMesh: 0
+--- !u!1 &1244049207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1244049208}
+  m_Layer: 0
+  m_Name: === CORE GAMEPLAY ===
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1244049208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244049207}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 256.8127, y: 262.42816, z: -4.8454013}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 439841}
+  - {fileID: 519420032}
+  - {fileID: 205547856}
+  - {fileID: 2444571997827948053}
+  - {fileID: 2058903025}
+  - {fileID: 341153863}
+  - {fileID: 1025210365}
+  - {fileID: 5948914195978509890}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1245306629
 GameObject:
   m_ObjectHideFlags: 0
@@ -17154,7 +17225,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 1
   secondCardNumber: 6
-  active: 1
+  Active: 1
 --- !u!222 &1250779482
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17513,7 +17584,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 3
   secondCardNumber: 2
-  active: 1
+  Active: 1
 --- !u!222 &1303388247
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17669,7 +17740,7 @@ MonoBehaviour:
   actionNumber: 2
   firstCardNumber: 4
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &1304879850
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17874,7 +17945,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 3
   secondCardNumber: 2
-  active: 1
+  Active: 1
 --- !u!222 &1345963741
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18030,7 +18101,7 @@ MonoBehaviour:
   actionNumber: 10
   firstCardNumber: 3
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &1348396844
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18176,7 +18247,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 1
   secondCardNumber: 5
-  active: 1
+  Active: 1
 --- !u!222 &1352480888
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18411,7 +18482,7 @@ MonoBehaviour:
   actionNumber: 2
   firstCardNumber: 5
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &1367453889
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18715,7 +18786,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 2
   secondCardNumber: 5
-  active: 1
+  Active: 1
 --- !u!222 &1403976364
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18861,7 +18932,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 3
   secondCardNumber: 6
-  active: 1
+  Active: 1
 --- !u!222 &1416288514
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19244,7 +19315,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 5
   secondCardNumber: 3
-  active: 1
+  Active: 1
 --- !u!222 &1461540237
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19469,7 +19540,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 1
   secondCardNumber: 4
-  active: 1
+  Active: 1
 --- !u!222 &1482705133
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19783,7 +19854,7 @@ MonoBehaviour:
   actionNumber: 4
   firstCardNumber: 2
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &1499626075
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19929,7 +20000,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 2
   secondCardNumber: 1
-  active: 1
+  Active: 1
 --- !u!222 &1501553488
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20164,7 +20235,7 @@ MonoBehaviour:
   actionNumber: 2
   firstCardNumber: 2
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &1520686835
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20539,7 +20610,7 @@ MonoBehaviour:
   actionNumber: 11
   firstCardNumber: 3
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &1533324787
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21209,7 +21280,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 6
   secondCardNumber: 1
-  active: 1
+  Active: 1
 --- !u!222 &1646649423
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21513,7 +21584,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 2
   secondCardNumber: 6
-  active: 1
+  Active: 1
 --- !u!222 &1676239049
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22196,7 +22267,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 5
   secondCardNumber: 1
-  active: 1
+  Active: 1
 --- !u!222 &1697484716
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22404,7 +22475,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 4
   secondCardNumber: 10
-  active: 1
+  Active: 1
 --- !u!1 &1707017675
 GameObject:
   m_ObjectHideFlags: 0
@@ -22860,7 +22931,7 @@ MonoBehaviour:
   actionNumber: 10
   firstCardNumber: 2
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &1727805717
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23006,7 +23077,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 1
   secondCardNumber: 2
-  active: 1
+  Active: 1
 --- !u!222 &1732084474
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23389,7 +23460,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 5
   secondCardNumber: 2
-  active: 1
+  Active: 1
 --- !u!222 &1749540557
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23535,7 +23606,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 3
   secondCardNumber: 6
-  active: 1
+  Active: 1
 --- !u!222 &1761775468
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23681,7 +23752,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 4
   secondCardNumber: 5
-  active: 1
+  Active: 1
 --- !u!222 &1761872418
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23837,7 +23908,7 @@ MonoBehaviour:
   actionNumber: 11
   firstCardNumber: 1
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &1779500864
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24133,7 +24204,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 1
   secondCardNumber: 5
-  active: 1
+  Active: 1
 --- !u!222 &1801057920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24420,7 +24491,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 2
   secondCardNumber: 10
-  active: 1
+  Active: 1
 --- !u!1 &1839529365
 GameObject:
   m_ObjectHideFlags: 0
@@ -24637,7 +24708,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 5
   secondCardNumber: 2
-  active: 1
+  Active: 1
 --- !u!222 &1849987335
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24872,7 +24943,7 @@ MonoBehaviour:
   actionNumber: 9
   firstCardNumber: 2
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &1862535636
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25352,14 +25423,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926261511}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -256.8127, y: -262.42816, z: 4.8454013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1311257111}
   - {fileID: 1117691236}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 211569618}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1935270004
 GameObject:
@@ -25508,7 +25579,7 @@ MonoBehaviour:
   actionNumber: 9
   firstCardNumber: 6
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &1935270010
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25733,7 +25804,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 5
   secondCardNumber: 4
-  active: 1
+  Active: 1
 --- !u!222 &1958782197
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25879,7 +25950,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 2
   secondCardNumber: 4
-  active: 1
+  Active: 1
 --- !u!222 &1966410207
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26035,7 +26106,7 @@ MonoBehaviour:
   actionNumber: 9
   firstCardNumber: 3
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &1973592985
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26260,7 +26331,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 4
   secondCardNumber: 3
-  active: 1
+  Active: 1
 --- !u!222 &1982005023
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26485,7 +26556,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 2
   secondCardNumber: 5
-  active: 1
+  Active: 1
 --- !u!222 &2009242957
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26865,7 +26936,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 6
   secondCardNumber: 3
-  active: 1
+  Active: 1
 --- !u!222 &2029781689
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27090,7 +27161,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 3
   secondCardNumber: 5
-  active: 1
+  Active: 1
 --- !u!222 &2054001913
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27236,7 +27307,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 5
   secondCardNumber: 1
-  active: 1
+  Active: 1
 --- !u!222 &2054184588
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27382,7 +27453,7 @@ MonoBehaviour:
   actionNumber: 8
   firstCardNumber: 2
   secondCardNumber: 6
-  active: 1
+  Active: 1
 --- !u!222 &2054227022
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27429,15 +27500,15 @@ MonoBehaviour:
   winScreen: {fileID: 294348179}
   arrowPrefab: {fileID: 6886104634279063747, guid: f8c01c7543b977f49bb9a8aee08b5db5,
     type: 3}
-  pressSpace: {fileID: 507816936}
-  checkButton: {fileID: 307947997}
+  PressSpace: {fileID: 507816936}
+  CheckButtonObject: {fileID: 307947997}
   lastChosenValueText: {fileID: 1872128811}
   winner: {fileID: 358450223}
   cardsNo: {fileID: 2124165229}
   delayBetweenCardsHandling: 0.5
   timeForHandlingCards: 2
-  playersReady: 0
-  maxCardsLosingCondition: 2
+  PlayersReady: 0
+  MaxCardsLosingCondition: 0
   playerArray: []
   cardsInGame: []
   listOfPlayersThatLost: 
@@ -27456,12 +27527,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058903023}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -256.8127, y: -262.42816, z: 4.8454013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1244049208}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2058903026
 MonoBehaviour:
@@ -27941,7 +28012,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 1
   secondCardNumber: 6
-  active: 1
+  Active: 1
 --- !u!222 &2076843794
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28563,7 +28634,7 @@ MonoBehaviour:
   actionNumber: 2
   firstCardNumber: 3
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &2130977132
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28709,7 +28780,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 4
   secondCardNumber: 3
-  active: 1
+  Active: 1
 --- !u!222 &2136910848
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28772,7 +28843,7 @@ MonoBehaviour:
   actionNumber: 1
   firstCardNumber: 1
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!114 &805348417854484911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28872,7 +28943,7 @@ MonoBehaviour:
   actionNumber: 1
   firstCardNumber: 2
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &1095223970060349807
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29543,7 +29614,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1244049208}
     m_Modifications:
     - target: {fileID: 2444571998953244680, guid: f599155677e010d459bbc6ba93084fc2,
         type: 3}
@@ -29558,32 +29629,32 @@ PrefabInstance:
     - target: {fileID: 5314591462786945798, guid: f599155677e010d459bbc6ba93084fc2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -256.8127
       objectReference: {fileID: 0}
     - target: {fileID: 5314591462786945798, guid: f599155677e010d459bbc6ba93084fc2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -262.42816
       objectReference: {fileID: 0}
     - target: {fileID: 5314591462786945798, guid: f599155677e010d459bbc6ba93084fc2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 4.8454013
       objectReference: {fileID: 0}
     - target: {fileID: 5314591462786945798, guid: f599155677e010d459bbc6ba93084fc2,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5314591462786945798, guid: f599155677e010d459bbc6ba93084fc2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5314591462786945798, guid: f599155677e010d459bbc6ba93084fc2,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5314591462786945798, guid: f599155677e010d459bbc6ba93084fc2,
         type: 3}
@@ -29593,7 +29664,7 @@ PrefabInstance:
     - target: {fileID: 5314591462786945798, guid: f599155677e010d459bbc6ba93084fc2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5314591462786945798, guid: f599155677e010d459bbc6ba93084fc2,
         type: 3}
@@ -29615,6 +29686,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2444571998953244686, guid: f599155677e010d459bbc6ba93084fc2,
+        type: 3}
+      propertyPath: CardPrefab
+      value: 
+      objectReference: {fileID: 5948914196559799469, guid: ba8cf4a36e0c6ae41a708452cdb932ca,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f599155677e010d459bbc6ba93084fc2, type: 3}
 --- !u!114 &2444571997827948052 stripped
@@ -29629,6 +29706,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223a1c7dfc31fe240a8fde350e882574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2444571997827948053 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5314591462786945798, guid: f599155677e010d459bbc6ba93084fc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2444571997827948051}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2485561995148296830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29641,7 +29724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff6ad1a481fde14baf1cac8ba294de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionIndex: 1
+  ActionIndex: 0
   active: 1
 --- !u!222 &2605105679812785257
 CanvasRenderer:
@@ -30739,7 +30822,7 @@ MonoBehaviour:
   actionNumber: 3
   firstCardNumber: 1
   secondCardNumber: 10
-  active: 1
+  Active: 1
 --- !u!222 &3566692303309703786
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31689,7 +31772,7 @@ MonoBehaviour:
   actionNumber: 5
   firstCardNumber: 0
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!114 &3842188494865254631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31722,7 +31805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff6ad1a481fde14baf1cac8ba294de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionIndex: 5
+  ActionIndex: 0
   active: 1
 --- !u!1 &3842188494874021599
 GameObject:
@@ -31930,7 +32013,7 @@ MonoBehaviour:
   actionNumber: 6
   firstCardNumber: 0
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!114 &3842188495302311331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31963,7 +32046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff6ad1a481fde14baf1cac8ba294de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionIndex: 6
+  ActionIndex: 0
   active: 1
 --- !u!114 &4009418013810197330
 MonoBehaviour:
@@ -32099,7 +32182,7 @@ MonoBehaviour:
   actionNumber: 4
   firstCardNumber: 1
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!114 &4284317819544806302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32115,7 +32198,7 @@ MonoBehaviour:
   actionNumber: 7
   firstCardNumber: 1
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!114 &4284317820114277997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32131,7 +32214,7 @@ MonoBehaviour:
   actionNumber: 2
   firstCardNumber: 1
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!222 &4386285518429392195
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32248,7 +32331,7 @@ MonoBehaviour:
   actionNumber: 1
   firstCardNumber: 4
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!114 &4533167331961498828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32494,7 +32577,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1244049208}
     m_Modifications:
     - target: {fileID: 5948914196559799469, guid: ba8cf4a36e0c6ae41a708452cdb932ca,
         type: 3}
@@ -32504,17 +32587,42 @@ PrefabInstance:
     - target: {fileID: 9093661609800380677, guid: ba8cf4a36e0c6ae41a708452cdb932ca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9093661609800380677, guid: ba8cf4a36e0c6ae41a708452cdb932ca,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 10.28
+      value: -246.53271
       objectReference: {fileID: 0}
     - target: {fileID: 9093661609800380677, guid: ba8cf4a36e0c6ae41a708452cdb932ca,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3.97
+      value: -266.39816
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093661609800380677, guid: ba8cf4a36e0c6ae41a708452cdb932ca,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093661609800380677, guid: ba8cf4a36e0c6ae41a708452cdb932ca,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093661609800380677, guid: ba8cf4a36e0c6ae41a708452cdb932ca,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093661609800380677, guid: ba8cf4a36e0c6ae41a708452cdb932ca,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.8454013
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948914196559799471, guid: ba8cf4a36e0c6ae41a708452cdb932ca,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5948914196559799470, guid: ba8cf4a36e0c6ae41a708452cdb932ca,
         type: 3}
@@ -32573,6 +32681,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba8cf4a36e0c6ae41a708452cdb932ca, type: 3}
+--- !u!224 &5948914195978509890 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9093661609800380677, guid: ba8cf4a36e0c6ae41a708452cdb932ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 5948914195978509889}
+  m_PrefabAsset: {fileID: 0}
 --- !u!222 &6133124706864748511
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32836,7 +32950,7 @@ MonoBehaviour:
   actionNumber: 1
   firstCardNumber: 5
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!114 &6865225380774265490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34288,7 +34402,7 @@ MonoBehaviour:
   actionNumber: 1
   firstCardNumber: 3
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!114 &8312032339575006710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34315,7 +34429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff6ad1a481fde14baf1cac8ba294de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionIndex: 11
+  ActionIndex: 0
   active: 1
 --- !u!114 &8436532280192094129
 MonoBehaviour:
@@ -34329,7 +34443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff6ad1a481fde14baf1cac8ba294de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionIndex: 3
+  ActionIndex: 0
   active: 1
 --- !u!114 &8436532281165864736
 MonoBehaviour:
@@ -34343,7 +34457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff6ad1a481fde14baf1cac8ba294de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionIndex: 7
+  ActionIndex: 0
   active: 1
 --- !u!114 &8436532281194379323
 MonoBehaviour:
@@ -34357,7 +34471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff6ad1a481fde14baf1cac8ba294de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionIndex: 2
+  ActionIndex: 0
   active: 1
 --- !u!114 &8436532281336929103
 MonoBehaviour:
@@ -34371,7 +34485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff6ad1a481fde14baf1cac8ba294de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionIndex: 9
+  ActionIndex: 0
   active: 1
 --- !u!114 &8436532281574253095
 MonoBehaviour:
@@ -34385,7 +34499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff6ad1a481fde14baf1cac8ba294de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionIndex: 4
+  ActionIndex: 0
   active: 1
 --- !u!114 &8436532281680362150
 MonoBehaviour:
@@ -34399,7 +34513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff6ad1a481fde14baf1cac8ba294de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionIndex: 8
+  ActionIndex: 0
   active: 1
 --- !u!114 &8436532281686750297
 MonoBehaviour:
@@ -34413,7 +34527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff6ad1a481fde14baf1cac8ba294de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionIndex: 10
+  ActionIndex: 0
   active: 1
 --- !u!114 &8571288719608970802
 MonoBehaviour:
@@ -35122,7 +35236,7 @@ MonoBehaviour:
   actionNumber: 1
   firstCardNumber: 6
   secondCardNumber: 0
-  active: 1
+  Active: 1
 --- !u!224 &9124754200626902164
 RectTransform:
   m_ObjectHideFlags: 0

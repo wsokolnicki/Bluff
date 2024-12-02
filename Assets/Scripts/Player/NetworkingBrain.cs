@@ -1,20 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Networking;
-#pragma warning disable 618
 
 public class NetworkingBrain : NetworkBehaviour
 {
     public static NetworkingBrain _instantiate;
 
     private void Awake()
-    { _instantiate = this; }
+    { 
+        _instantiate = this; 
+    }
 
     private void Start()
     {
         if (isServer)
-        { Gameplay._instance.randomSeed = Random.Range(1, 99999); }
+        {
+            Gameplay._instance.randomSeed = Random.Range(1, 99999); 
+        }
     }
 
     //currentPlayerIndex Update in Gameplay class, when next player activated
@@ -28,12 +29,12 @@ public class NetworkingBrain : NetworkBehaviour
     [Command]
     public void CmdSetCurrentPlayerToFalse(int currPlIndx)
     {
-        Gameplay._instance.playerArray[currPlIndx].GetComponent<Player>().currentPlayer = false;
+        Gameplay._instance.playerArray[currPlIndx].GetComponent<Player>().CurrentPlayer = false;
     }
     [Command]
     public void CmdSetCurrentPlayerToTrue(int currPlIndx)
     {
-        Gameplay._instance.playerArray[currPlIndx].GetComponent<Player>().currentPlayer = true;
+        Gameplay._instance.playerArray[currPlIndx].GetComponent<Player>().CurrentPlayer = true;
     }
 
     [Command]

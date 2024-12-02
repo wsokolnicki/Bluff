@@ -1,29 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpaceMovement : MonoBehaviour
 {
-    [HideInInspector] public bool moveSpace = false;
-    [HideInInspector] public Vector3 startPosition;
-    Vector3 target;
-    [SerializeField] float speed = 0.75f;
-    float offset = 70f;
+    [HideInInspector] public bool MoveSpace = false;
+    [HideInInspector] public Vector3 StartPosition = Vector3.zero;
+    private Vector3 target = Vector3.zero;
+    [SerializeField] private float speed = 1.5f;
+    private float offset = 70f;
 
     private void Start()
     {
-        startPosition = transform.position;
+        StartPosition = transform.position;
         target = new Vector3(transform.position.x, transform.position.y - offset, transform.position.z);
     }
 
     void Update()
     {
-        if (!moveSpace)
+        if (!MoveSpace)
+        {
             return;
+        }
         else
         {
             transform.position = Vector3.MoveTowards(transform.position, target, speed);
-            moveSpace = (transform.position == target) ? false : true;
+            MoveSpace = (transform.position == target) ? false : true;
         }
     }
 }

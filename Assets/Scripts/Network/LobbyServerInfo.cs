@@ -1,17 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking.Match;
 using UnityEngine.Networking.Types;
-#pragma warning disable 618
-#pragma warning disable 0649
 
 public class LobbyServerInfo : MonoBehaviour
 {
-    [SerializeField] Text roomInfoText;
-    [SerializeField] Text slotInfo;
-    [SerializeField] Button joinButton;
+    [SerializeField] private Text roomInfoText = null;
+    [SerializeField] private Text slotInfo = null;
+    [SerializeField] private Button joinButton = null;
 
     public void Populate(MatchInfoSnapshot match, LobbyManager lobbyManager)
     {
@@ -30,5 +26,3 @@ public class LobbyServerInfo : MonoBehaviour
         lobbyManager._isMatchmaking = true;
     }
 }
-
-#pragma warning restore 0649

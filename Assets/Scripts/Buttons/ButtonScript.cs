@@ -1,21 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour
 {
     public static ButtonScript _inst;
 
-    public int actionIndex;
-    Vector3 startPosition;
-    float offsetX = 500;
-    Vector3 offset;
-    GameObject buttonParent;
+    public int ActionIndex = 0;
+    private Vector3 startPosition = Vector3.zero;
+    private float offsetX = 500f;
+    private Vector3 offset = Vector3.zero;
+    private GameObject buttonParent = null;
     public bool active = true;
 
     private void Awake()
-    { _inst = this; }
+    { 
+        _inst = this; 
+    }
 
     private void Start()
     {
@@ -27,12 +27,16 @@ public class ButtonScript : MonoBehaviour
     public void Show_HideAllActionButtons(bool currentPlayer)
     {
         if (!currentPlayer)
+        {
             buttonParent.transform.position = startPosition - offset;
+        }
         else
+        {
             buttonParent.transform.position = startPosition;
+        }
     }
 
-    public void DisableTopButtonIfChosenVariantGrater(int aV, int fCV, int sCV)
+    public void DisableTopButtonIfChosenVariantGreater(int aV, int fCV, int sCV)
     {
         foreach (ButtonScript mainButton in FindObjectsOfType<ButtonScript>())
         {
@@ -41,12 +45,12 @@ public class ButtonScript : MonoBehaviour
                 mainButton.GetComponent<Button>().interactable = true;
                 active = true;
             }
-            else if (mainButton.actionIndex < aV)
+            else if (mainButton.ActionIndex < aV)
             {
                 mainButton.GetComponent<Button>().interactable = false;
                 active = false;
             }
-            else if (mainButton.actionIndex == aV)
+            else if (mainButton.ActionIndex == aV)
             {   //Turn off the button, when top value is chosen in a ...
                 if ((fCV % 6 == 0 && sCV == 0) ||                     // single value return (high card, three of a kind etc
                     ((aV == 7 || aV == 11) && fCV == 4) ||                // suit return (flush, royal flush)

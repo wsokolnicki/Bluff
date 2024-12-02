@@ -9873,14 +9873,14 @@ MonoBehaviour:
   playerNameText: {fileID: 8427394144027841840}
   playerNameGO: {fileID: 8427394144027841846}
   playersTurn: {fileID: 1813154090445477128}
-  particlePlusOne: {fileID: 4360573952435720808}
-  noOfCardsInHand: 3
-  currentNoOfCardsInHand: 0
-  currentPlayer: 0
-  playerName: Player
-  currentPlayerIndex: 0
-  playerReady: 0
-  playerLost: 0
+  ParticlePlusOne: {fileID: 4360573952435720808}
+  NoOfCardsInHand: 1
+  CurrentNoOfCardsInHand: 0
+  CurrentPlayer: 0
+  PlayerName: Player
+  CurrentPlayerIndex: 0
+  IsplayerReady: 0
+  PlayerLost: 0
 --- !u!114 &7833661323237649230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9894,10 +9894,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameplay: {fileID: 0}
-  cards: 
-  playerIndex: 0
-  isGameDeck: 0
-  mainPlayer: 0
+  Cards: 
+  PlayerIndex: 0
+  IsGameDeck: 0
+  MainPlayer: 0
 --- !u!114 &5561265896418003359
 MonoBehaviour:
   m_ObjectHideFlags: 0

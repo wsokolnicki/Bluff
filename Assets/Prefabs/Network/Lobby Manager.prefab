@@ -1132,7 +1132,7 @@ MonoBehaviour:
   mainMenuPanel: {fileID: 3636538891209289998}
   roomPanel: {fileID: 3636538891617167509}
   mainMenuButton: {fileID: 3636538892432501920}
-  countdownPanel: {fileID: 3665695392325162609}
+  CountdownPanel: {fileID: 3665695392325162609}
 --- !u!114 &4269048609259028874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2115,6 +2115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lobbyManager: {fileID: 3636538890830995372}
   playerListRectTransform: {fileID: 3636538891648624668}
+  _players: []
 --- !u!1 &3636538891648624669
 GameObject:
   m_ObjectHideFlags: 0
@@ -2647,16 +2648,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3636538891648624668}
     m_Modifications:
-    - target: {fileID: 8981251940396835690, guid: bb9b71e73626e01468a2c94f0d017ca3,
-        type: 3}
-      propertyPath: m_Name
-      value: LobbyPlayerInfo
-      objectReference: {fileID: 0}
-    - target: {fileID: 8981251940396835690, guid: bb9b71e73626e01468a2c94f0d017ca3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8981251940396835693, guid: bb9b71e73626e01468a2c94f0d017ca3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2761,6 +2752,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981251940396835690, guid: bb9b71e73626e01468a2c94f0d017ca3,
+        type: 3}
+      propertyPath: m_Name
+      value: LobbyPlayerInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981251940396835690, guid: bb9b71e73626e01468a2c94f0d017ca3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8981251940396835695, guid: bb9b71e73626e01468a2c94f0d017ca3,
         type: 3}
