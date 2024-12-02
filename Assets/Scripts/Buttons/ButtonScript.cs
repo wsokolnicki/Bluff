@@ -24,9 +24,9 @@ public class ButtonScript : MonoBehaviour
         offset = new Vector3(offsetX, 0, 0);
     }
 
-    public void Show_HideAllActionButtons(bool currentPlayer)
+    public void Show_HideAllActionButtons(bool _currentPlayer)
     {
-        if (!currentPlayer)
+        if (!_currentPlayer)
         {
             buttonParent.transform.position = startPosition - offset;
         }
@@ -38,25 +38,27 @@ public class ButtonScript : MonoBehaviour
 
     public void DisableTopButtonIfChosenVariantGreater(int aV, int fCV, int sCV)
     {
-        foreach (ButtonScript mainButton in FindObjectsOfType<ButtonScript>())
+        foreach (ButtonScript _mainButton in FindObjectsOfType<ButtonScript>())
         {
+            Button _button = _mainButton.GetComponent<Button>();
+
             if (aV == 0)
             {
-                mainButton.GetComponent<Button>().interactable = true;
+                _button.interactable = true;
                 active = true;
             }
-            else if (mainButton.ActionIndex < aV)
+            else if (_mainButton.ActionIndex < aV)
             {
-                mainButton.GetComponent<Button>().interactable = false;
+                _button.interactable = false;
                 active = false;
             }
-            else if (mainButton.ActionIndex == aV)
+            else if (_mainButton.ActionIndex == aV)
             {   //Turn off the button, when top value is chosen in a ...
                 if ((fCV % 6 == 0 && sCV == 0) ||                     // single value return (high card, three of a kind etc
                     ((aV == 7 || aV == 11) && fCV == 4) ||                // suit return (flush, royal flush)
                     ((fCV == 6 && sCV == 5) || (aV == 3 && fCV == 5 && sCV == 6))) // two pairs or full house
                 {
-                    mainButton.GetComponent<Button>().interactable = false;
+                    _button.interactable = false;
                     active = false;
                 }
             }

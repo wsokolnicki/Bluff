@@ -11,6 +11,8 @@ public class Draggable : MonoBehaviour
     private int sortOrder = 0;
     [HideInInspector] public bool PlayersChild = false;
 
+    [SerializeField] private Vector2 placeholderCardSize = new Vector2(1f,1f);
+
     private void Start()
     {
         cardModel = GetComponent<CardModel>();
@@ -30,7 +32,7 @@ public class Draggable : MonoBehaviour
         placeholder.name = "PLACEHOLDER";
         placeholder.transform.SetParent(this.transform.parent);
         LayoutElement _le = placeholder.AddComponent<LayoutElement>();
-        placeholder.GetComponent<RectTransform>().sizeDelta = new Vector2(1.25f, 1.3333389f);
+        placeholder.GetComponent<RectTransform>().sizeDelta = placeholderCardSize;
         _le.preferredWidth = this.GetComponent<LayoutElement>().preferredWidth + 1;
         _le.preferredHeight = this.GetComponent<LayoutElement>().preferredHeight;
         _le.flexibleWidth = 0;

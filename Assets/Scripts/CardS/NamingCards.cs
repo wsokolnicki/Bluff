@@ -89,7 +89,7 @@ public class NamingCards : MonoBehaviour
         colour = (Suit)firstCardNumber - 1; 
 
         if (actionNumber == 3)
-            return (actionNames[actionNumber] + " " + firstCard + "s and " + secondCard + "s");
+            return ($"{actionNames[actionNumber]} {firstCard}s and {secondCard}s");
         else if (actionNumber == 8)
             return (actionNames[actionNumber] + " " + firstCard + "s over " + secondCard +"s");
         else if (actionNumber == 0 || actionNumber == 5 || actionNumber == 6)
@@ -97,6 +97,6 @@ public class NamingCards : MonoBehaviour
         else if (actionNumber == 7 || actionNumber == 10 || actionNumber == 11)
             return (actionNames[actionNumber] + " " + colour);
         else
-            return (actionNames[actionNumber] + " " + firstCard);
+            return ($"{actionNames[actionNumber]} {firstCard}");
     }
 }

@@ -51,7 +51,7 @@ public class Gameplay : NetworkBehaviour
     [SyncVar(hook = "OnCurrentPlayerIndexChange")] public int currentPlayerIndex;
     [SyncVar(hook = "RandomSeedChange")] [HideInInspector] public int randomSeed = 0;
     [SyncVar] public bool roundEnd = false;
-    public ChosenVariant chosenVariant;
+     public ChosenVariant chosenVariant;
     [SyncVar(hook = "OnLastPlayerIndexChange")] public int lastPlayerIndex;
 
     //temp
@@ -129,8 +129,7 @@ public class Gameplay : NetworkBehaviour
 
     private void Update()
     {
-        lastChosenValueText.text = NamingCards.SelectedValue
-            (chosenVariant.actionValue, chosenVariant.firstCardValue, chosenVariant.secondCardValue);
+        lastChosenValueText.text = NamingCards.SelectedValue(chosenVariant.actionValue, chosenVariant.firstCardValue, chosenVariant.secondCardValue);
 
         cardsNo.text = tottalAmountOfCardsInGameThisRound.ToString();
 
@@ -391,8 +390,10 @@ public class Gameplay : NetworkBehaviour
         CardModel cardModel = card.GetComponent<CardModel>();
         cardModel.PlayerPosition = card.transform.parent.parent.parent.position;
 
-        Color _transparency = new Vector4(1f,1f,1f,0.5f);
+        Color _transparency = new Vector4(1f,1f,1f,0.8f);
         cardModel.GetComponent<SpriteRenderer>().color = _transparency;
+        RectTransform _cardTransform = cardModel.GetComponent<RectTransform>();
+        _cardTransform.position = new Vector3(_cardTransform.position.x, _cardTransform.position.y + 0.1f, _cardTransform.position.z);
 
         GameObject cardCopy = Instantiate(cardSView.CardPrefab) as GameObject;
         CardModel _cardPreview = cardCopy.GetComponent<CardModel>();
