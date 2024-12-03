@@ -14,7 +14,7 @@ public class NetworkingBrain : NetworkBehaviour
     {
         if (isServer)
         {
-            Gameplay._instance.randomSeed = Random.Range(1, 99999); 
+            GameplayManager._instance.randomSeed = Random.Range(1, 99999); 
         }
     }
 
@@ -22,24 +22,24 @@ public class NetworkingBrain : NetworkBehaviour
     [Command]
     public void CmdCurrnetPlayerIndexUpdate()
     {
-        Gameplay._instance.IncreaseCurrentPlayerIndexValue();
+        GameplayManager._instance.IncreaseCurrentPlayerIndexValue();
     }
 
     //Updating players, by changing currentPlayer state to true or false
     [Command]
     public void CmdSetCurrentPlayerToFalse(int currPlIndx)
     {
-        Gameplay._instance.playerArray[currPlIndx].GetComponent<Player>().CurrentPlayer = false;
+        GameplayManager._instance.playerArray[currPlIndx].GetComponent<Player>().CurrentPlayer = false;
     }
     [Command]
     public void CmdSetCurrentPlayerToTrue(int currPlIndx)
     {
-        Gameplay._instance.playerArray[currPlIndx].GetComponent<Player>().CurrentPlayer = true;
+        GameplayManager._instance.playerArray[currPlIndx].GetComponent<Player>().CurrentPlayer = true;
     }
 
     [Command]
     public void CmdUpdateChosenVariant(int x, int y, int z)
-    { Gameplay._instance.RpcUpdateChosenVariant(x, y, z); }
+    { GameplayManager._instance.RpcUpdateChosenVariant(x, y, z); }
 
     [Command]
     public void CmdPlayerReadySync(bool ready)
@@ -50,31 +50,31 @@ public class NetworkingBrain : NetworkBehaviour
     [Command]
     public void CmdCheckButtonActivated()
     {
-        Gameplay._instance.RpcCheckButtonSync();
+        GameplayManager._instance.RpcCheckButtonSync();
     }
 
     [Command]
     public void CmdSetRandomSeed()
     {
-        Gameplay._instance.randomSeed = Random.Range(1, 99999);
+        GameplayManager._instance.randomSeed = Random.Range(1, 99999);
     }
 
     [ClientRpc]
     public void RpcRestartGame()
     {
-        StartCoroutine(Gameplay._instance.RestartGameAction());
+        StartCoroutine(GameplayManager._instance.RestartGameAction());
     }
 
     [Command]
     public void CmdNextRound()
     {
-        StartCoroutine(Gameplay._instance.NextRound());
+        StartCoroutine(GameplayManager._instance.NextRound());
     }
 
     [Command]
     public void CmdLastPLayerIndexUpdate(int playerIndex)
     {
-        Gameplay._instance.LastPlayerIndex = playerIndex;
+        GameplayManager._instance.LastPlayerIndex = playerIndex;
     }
 }
 

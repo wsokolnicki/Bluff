@@ -12,9 +12,9 @@ public class ButtonValue : MonoBehaviour
     private void OnEnable()
     {
         DisableMainButtonIfChosenVariantGrater(
-            Gameplay._instance.chosenVariant.actionValue,
-            Gameplay._instance.chosenVariant.firstCardValue,
-            Gameplay._instance.chosenVariant.secondCardValue);
+            GameplayManager._instance.chosenVariant.actionValue,
+            GameplayManager._instance.chosenVariant.firstCardValue,
+            GameplayManager._instance.chosenVariant.secondCardValue);
     }
 
     private void Update()
@@ -30,7 +30,7 @@ public class ButtonValue : MonoBehaviour
 
     public void ReturnValue()
     {
-        GameObject player = FindObjectOfType<Gameplay>().GetComponent<Gameplay>().localPlayer;
+        GameObject player = FindObjectOfType<GameplayManager>().GetComponent<GameplayManager>().localPlayer;
 
         if (!player.GetComponent<NetworkIdentity>().isServer)
         {
@@ -39,11 +39,11 @@ public class ButtonValue : MonoBehaviour
         else
         {
             ButtonScript._inst.DisableTopButtonIfChosenVariantGreater(actionNumber, firstCardNumber, secondCardNumber);
-            Gameplay._instance.RpcUpdateChosenVariant
+            GameplayManager._instance.RpcUpdateChosenVariant
             (actionNumber, firstCardNumber, secondCardNumber);
         }
 
-        Gameplay._instance.NextPlayer();
+        GameplayManager._instance.NextPlayer();
     }
 
     public void DisableMainButtonIfChosenVariantGrater(int action, int firstCard, int secondCard)

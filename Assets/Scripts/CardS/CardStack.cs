@@ -6,7 +6,7 @@ public class CardStack : MonoBehaviour
 {
     //cache
     private CardStackView dealer = null;
-    [Header("Necessary for Dealer only")] [SerializeField] Gameplay gameplay = null;
+    [Header("Necessary for Dealer only")] [SerializeField] GameplayManager gameplay = null;
 
     public List<int> Cards = new List<int>();
     public int PlayerIndex = 0;
@@ -56,7 +56,7 @@ public class CardStack : MonoBehaviour
         yield return new WaitUntil(() => gameplay.randomSeed != 0);
 
         Random.InitState(System.Environment.TickCount);
-        Random.InitState(Gameplay._instance.randomSeed);
+        Random.InitState(GameplayManager._instance.randomSeed);
         Cards.Clear();
 
         for (int i = 0; i < 24; i++)
@@ -65,7 +65,7 @@ public class CardStack : MonoBehaviour
         }
 
         int n = Cards.Count;
-        Gameplay._instance.noOfCardsInDeck = n;
+        GameplayManager._instance.noOfCardsInDeck = n;
         while (n > 1)
         {
             n--;

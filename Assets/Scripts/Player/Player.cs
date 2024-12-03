@@ -71,7 +71,7 @@ public class Player : NetworkBehaviour
 
     private void Start()
     {
-        Gameplay._instance.playerArray.Add(gameObject);
+        GameplayManager._instance.playerArray.Add(gameObject);
         playerNameText.text = PlayerName;
     }
 
@@ -112,15 +112,15 @@ public class Player : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            ButtonScript._inst.Show_HideAllActionButtons(CurrentPlayer);
+            UIManager._inst.InGameSelectionMenuManager(CurrentPlayer);
 
-            if (!Gameplay._instance.roundEnd || PlayerLost)
+            if (!GameplayManager._instance.roundEnd || PlayerLost)
                 return;
             else
             {
                 if (Input.GetKeyUp(KeyCode.Space) || (Input.GetKeyUp(KeyCode.Mouse1)))
                 {
-                    GameObject space = Gameplay._instance.PressSpace;
+                    GameObject space = GameplayManager._instance.UI_ContinueGame;
                     IsplayerReady = true;
                     space.SetActive(false);
                     space.GetComponent<SpaceMovement>().transform.position = space.GetComponent<SpaceMovement>().StartPosition;
@@ -135,7 +135,7 @@ public class Player : NetworkBehaviour
 
     public void TurnCheckButtonOn_Off(bool isCurrentPlayer)
     {
-        Gameplay._instance.CheckButtonObject.SetActive(isCurrentPlayer);
+        GameplayManager._instance.UI_CheckButton.SetActive(isCurrentPlayer);
     }
 
     public void TurnAllPlayerReadyFalse()

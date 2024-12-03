@@ -3,26 +3,25 @@ using UnityEngine;
 
 public class CardModel : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer = null;
-
     [SerializeField] private Sprite[] faces = new Sprite[24];
     [SerializeField] private Sprite cardBack = null;
 
     public int CardIndex = 0;
-    private int cardValue, cardSuit = 0;
-    public bool FaceUp = false;
+
+    [HideInInspector] public bool FaceUp = false;
     [HideInInspector] public bool flipAnimation = false;
+    [HideInInspector] public Transform CardCopyInPlayerHand = null;
+    [HideInInspector] public SpriteRenderer CardSpriteRenderer = null;
 
     //For adding arrows after check option
     [HideInInspector] public Vector3 PlayerPosition = Vector3.zero;
-    //public Text playerName;
 
     //For handling cards
     [HideInInspector] public bool Handling = false;
     private float handlingSpeed = 0f;
-    private GameObject player = null;
-    
-    [HideInInspector] public Transform CardCopyInPlayerHand = null;
+    [HideInInspector] public GameObject CardOwner = null;
+
+    private int cardValue, cardSuit = 0;
 
     public int CardValue
     {
@@ -38,7 +37,7 @@ public class CardModel : MonoBehaviour
 
     void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        CardSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
@@ -48,20 +47,21 @@ public class CardModel : MonoBehaviour
             return;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, handlingSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, CardOwner.transform.position, handlingSpeed * Time.deltaTime);
 
-        if (transform.position == player.transform.position)
+        if (transform.position == CardOwner.transform.position)
         {
             Handling = false;
-            transform.SetParent(player.transform.GetChild(1).transform.GetChild(1));
-            GetComponent<SpriteRenderer>().sortingOrder = transform.parent.childCount;
+            transform.SetParent(CardOwner.transform.GetChild(1).transform.GetChild(1));
+            CardSpriteRenderer.sortingOrder = transform.parent.childCount;
         }
     }
 
     public void PrepareCardForHandling(GameObject player, float delayBetweenCards)
     {
         handlingSpeed = (player.transform.position - transform.position).magnitude / delayBetweenCards;
-        this.player = player;
+        this.CardOwner = player;
+        PlayerPosition = player.transform.position;
         Handling = true;
     }
 
@@ -69,12 +69,12 @@ public class CardModel : MonoBehaviour
     {
         if (showFace)
         {
-            spriteRenderer.sprite = faces[CardIndex];
+            CardSpriteRenderer.sprite = faces[CardIndex];
             FaceUp = true;
         }
         else
         {
-            spriteRenderer.sprite = cardBack;
+            CardSpriteRenderer.sprite = cardBack;
             FaceUp = false;
         }
     }
@@ -87,17 +87,17 @@ public class CardModel : MonoBehaviour
 
         while (!flipped)
         {
-            transform.Rotate(0, flipDegree, 0);
+            transform.Rotate(0f, flipDegree, 0f);
 
-            if (transform.eulerAngles.y < 0)
+            if (transform.eulerAngles.y < 0f)
             {
                 flipped = true;
             }
 
-            if (transform.eulerAngles.y == 90)
+            if (transform.eulerAngles.y == 90f)
             {
                 ToggleFace(true);
-                transform.eulerAngles = new Vector3(0, -90, 0);
+                transform.eulerAngles = new Vector3(0f, -90f, 0f);
             }
             yield return new WaitForSeconds(Time.deltaTime);
         }

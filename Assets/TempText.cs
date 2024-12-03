@@ -40,14 +40,14 @@ public class TempText : MonoBehaviour
         //if (!x)
         //    return;
 
-        currPlIndx.text = Gameplay._instance.listOfPlayersThatLost.Count.ToString();
+        currPlIndx.text = GameplayManager._instance.listOfPlayersThatLost.Count.ToString();
 
         //for (int i = 0; i < Gameplay._instance.numberOfPlayers; i++)
         //{
         //    players[i].text = Gameplay._instance.playerArray[i].GetComponent<Player>().playerName;
         //    bools[i].text = Gameplay._instance.playerArray[i].GetComponent<Player>().currentPlayer.ToString();
         //}
-        int dupa = Gameplay._instance.lastPlayerIndex + 1;
+        int dupa = GameplayManager._instance.lastPlayerIndex + 1;
         seed.text = dupa.ToString();
     }
 }

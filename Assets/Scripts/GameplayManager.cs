@@ -4,27 +4,28 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
-public class Gameplay : NetworkBehaviour
+public class GameplayManager : NetworkBehaviour
 {
-
-    [HideInInspector] public static Gameplay _instance = null;
+    [HideInInspector] public static GameplayManager _instance = null;
     private CardStackView cardSView = null;
     [Header("Classes")]
-    [SerializeField] CardStack dealer = null;
+    [SerializeField] private CardStack dealer = null;
+    [SerializeField] private UIManager uIManager = null;
     [Header("Game Objects")]
-    [SerializeField] private GameObject deck = null;
+    [SerializeField] private GameObject deckObject = null;
     [SerializeField] private GameObject checkedCardSingle= null;
     [SerializeField] private GameObject checkedCardsDoubleUP = null;
     [SerializeField] private GameObject checkedCardsDoubleDOWN = null;
-    [SerializeField] private GameObject winScreen = null;
     [SerializeField] private GameObject arrowPrefab = null;
-    public GameObject PressSpace = null;
-    public GameObject CheckButtonObject = null;
+    private GameObject arrowsParent = null;
     //public GameObject buttonParent;
     [Header("UI")]
+    public GameObject UI_ContinueGame = null;
+    public GameObject UI_CheckButton = null;
+    [SerializeField] private GameObject UI_WinScreen = null;
     [SerializeField] private Text lastChosenValueText = null;
-    [SerializeField] private Text winner = null;
-    [SerializeField] private Text cardsNo = null;
+    [SerializeField] private Text winnerText = null;
+    [SerializeField] private Text cardsNoText = null;
     [Header("Variables")]
     [SerializeField] private float delayBetweenCardsHandling = 0f;
     [SerializeField] private float timeForHandlingCards = 2f;
@@ -54,7 +55,7 @@ public class Gameplay : NetworkBehaviour
     [SyncVar(hook = "OnLastPlayerIndexChange")] public int lastPlayerIndex;
 
     //temp
-    public bool deckCreated = false;
+    public bool DeckCreated = false;
 
     public struct ChosenVariant
     {
@@ -71,7 +72,7 @@ public class Gameplay : NetworkBehaviour
 
         public string GetVariablesString()
         {
-            return (actionValue.ToString() + " " + firstCardValue.ToString() + " " + secondCardValue.ToString());
+            return ($"{actionValue.ToString()} {firstCardValue.ToString()} {secondCardValue.ToString()}");
         }
 
         public int[] GetVariables()
@@ -110,7 +111,7 @@ public class Gameplay : NetworkBehaviour
         ButtonScript._inst.DisableTopButtonIfChosenVariantGreater(aV, fCV, sCV);
         if (aV == 0)
         {
-            CheckButtonObject.gameObject.SetActive(false);
+            UI_CheckButton.gameObject.SetActive(false);
         }
     }
     //------------------------------------------
@@ -129,8 +130,7 @@ public class Gameplay : NetworkBehaviour
     private void Update()
     {
         lastChosenValueText.text = NamingCards.SelectedValue(chosenVariant.actionValue, chosenVariant.firstCardValue, chosenVariant.secondCardValue);
-
-        cardsNo.text = tottalAmountOfCardsInGameThisRound.ToString();
+        cardsNoText.text = tottalAmountOfCardsInGameThisRound.ToString();
 
         if (isServer)
         {// Loop that checks all the players if they are ready for next round
@@ -154,52 +154,53 @@ public class Gameplay : NetworkBehaviour
 
         numberOfPlayers = playerArray.Count;
 
-        Vector3 center = Vector3.zero;
-        int i = 0;
-        int x = 0;
+        Vector3 _center = Vector3.zero;
+        int playerIndex = 0;
+        int localPlayerIndex = 0;
 
-        foreach (GameObject player in playerArray)
+        foreach (GameObject _player in playerArray)
         {
-            player.GetComponent<CardStack>().PlayerIndex = i;
-            if (player.GetComponent<NetworkIdentity>().isLocalPlayer)
+            CardStack _playerCardStack = _player.GetComponent<CardStack>();
+
+            _playerCardStack.PlayerIndex = playerIndex;
+            if (_player.GetComponent<NetworkIdentity>().isLocalPlayer)
             {
-                localPlayer = player;
-                player.GetComponent<CardStack>().MainPlayer = true;
-                x = player.GetComponent<CardStack>().PlayerIndex;
+                localPlayer = _player;
+                _playerCardStack.MainPlayer = true;
+                localPlayerIndex = _playerCardStack.PlayerIndex;
             }
-            i++;
+            playerIndex++;
         }
-        int z = 0;
+        int i = 0;
 
         do
         {
-            float ang = z * (360 / numberOfPlayers);     //angle value that grows each time loop reapeats
-            var position = Ellipse(ang, center, 3.5f, 5f);
-            playerArray[x].transform.position = position;
-            playerArray[x].transform.SetParent(GameObject.Find("Players").transform);
+            float _ang = i * (360f / numberOfPlayers);     //angle value that grows each time loop reapeats
+            Vector3 _position = Ellipse(_ang, _center, 3.5f, 5f);
+            playerArray[localPlayerIndex].transform.position = _position;
+            playerArray[localPlayerIndex].transform.SetParent(GameObject.FindGameObjectWithTag("PlayersInGame").transform);
             //playerArray[x].GetComponent<Player>().SetPlayerNameLocationOnBoard(ang);
-            playerArray[x].GetComponent<Player>().SetTextAlignment();
-            playerArray[x].name = playerArray[x].GetComponent<Player>().PlayerName;
-            x++;
-            z++;
-            if (x == numberOfPlayers)
-                x = 0;
+            playerArray[localPlayerIndex].GetComponent<Player>().SetTextAlignment();
+            playerArray[localPlayerIndex].name = playerArray[localPlayerIndex].GetComponent<Player>().PlayerName;
+            localPlayerIndex++;
+            i++;
+            if (localPlayerIndex == numberOfPlayers)
+                localPlayerIndex = 0;
         }
-        while (z < numberOfPlayers);
+        while (i < numberOfPlayers);
 
         GameStart();
     }
     private Vector3 Ellipse(float ang, Vector3 center, float radiusA, float radiusB)
     {
-        float angle = ang;
-        Vector3 position;
-        position.x = center.x - radiusB * Mathf.Sin(angle * Mathf.Deg2Rad);
-        position.y = center.y - radiusA * Mathf.Cos(angle * Mathf.Deg2Rad);
-        position.z = center.z;
+        float _angle = ang;
+        Vector3 _position = Vector3.zero;
+        _position.x = center.x - radiusB * Mathf.Sin(_angle * Mathf.Deg2Rad);
+        _position.y = center.y - radiusA * Mathf.Cos(_angle * Mathf.Deg2Rad);
+        _position.z = center.z;
 
-        return position;
+        return _position;
     }
-
 
     //--------Starting a game - setting randomly first(active) player and handling cards
     void GameStart()
@@ -207,18 +208,20 @@ public class Gameplay : NetworkBehaviour
         networkLocalPlayer = localPlayer.GetComponent<NetworkingBrain>();
 
         if (localPlayer.GetComponent<NetworkIdentity>().isServer)
+        {
             currentPlayerIndex = Random.Range(0, playerArray.Count);
+        }
 
         playerArray[currentPlayerIndex].GetComponent<Player>().CurrentPlayer = true;
-        CheckButtonObject.gameObject.SetActive(false);
+        UI_CheckButton.gameObject.SetActive(false);
         MaxCardsLosingCondition = HowManyCardsLosingCondition(numberOfPlayers);
         StartCoroutine(HandlingCards());
     }
     IEnumerator HandlingCards()
     {
         //Wait until deck is created (necessary due to delay between server and clients - server generates Random.seed)
-        yield return new WaitUntil(() => deck.transform.childCount == noOfCardsInDeck);
-        deckCreated = true;
+        yield return new WaitUntil(() => deckObject.transform.childCount == noOfCardsInDeck);
+        DeckCreated = true;
         tottalAmountOfCardsInGameThisRound = 0;
         foreach (GameObject player in playerArray)
         {
@@ -230,16 +233,13 @@ public class Gameplay : NetworkBehaviour
         }
 
         int topCardIndex = 1;
-        delayBetweenCardsHandling =
-            ((timeForHandlingCards / tottalAmountOfCardsInGameThisRound) > 0.5f) ? 0.5f : timeForHandlingCards / tottalAmountOfCardsInGameThisRound;
+        delayBetweenCardsHandling = ((timeForHandlingCards / tottalAmountOfCardsInGameThisRound) > 0.5f) ? 0.5f : timeForHandlingCards / tottalAmountOfCardsInGameThisRound;
 
         while (cardsInGame.Count < tottalAmountOfCardsInGameThisRound)
         {
             for (int x = 0; x < numberOfPlayers; x++)
             {
-                if (playerArray[x].GetComponent<Player>().CurrentNoOfCardsInHand <
-                    playerArray[x].GetComponent<Player>().NoOfCardsInHand &&
-                    !playerArray[x].GetComponent<Player>().PlayerLost)
+                if (playerArray[x].GetComponent<Player>().CurrentNoOfCardsInHand < playerArray[x].GetComponent<Player>().NoOfCardsInHand && !playerArray[x].GetComponent<Player>().PlayerLost)
                 {
                     AddCardToPlayerHand(topCardIndex, playerArray[x]);
                     topCardIndex++;
@@ -251,7 +251,7 @@ public class Gameplay : NetworkBehaviour
     void AddCardToPlayerHand(int topCardInTheDeckIndex, GameObject player)
     {
         //It takes existing card (gameObject) and moves it to players hand. Then adds to cardsInGame List
-        GameObject currentCard = deck.transform.GetChild(noOfCardsInDeck - topCardInTheDeckIndex).gameObject;
+        GameObject currentCard = deckObject.transform.GetChild(noOfCardsInDeck - topCardInTheDeckIndex).gameObject;
 
         currentCard.GetComponent<CardModel>().PrepareCardForHandling(player, delayBetweenCardsHandling);
 
@@ -322,8 +322,8 @@ public class Gameplay : NetworkBehaviour
     [ClientRpc]
     public void RpcCheckButtonSync()
     {
-        ButtonScript._inst.Show_HideAllActionButtons(false);
-        CheckButtonObject.SetActive(false);
+        UIManager._inst.InGameSelectionMenuManager(false);
+        UI_CheckButton.SetActive(false);
         roundEnd = true;
         foreach (GameObject card in cardsInGame)
         {
@@ -337,109 +337,149 @@ public class Gameplay : NetworkBehaviour
     }
     IEnumerator MovePlayingCardsToCenter(int action, int firstCard, int secondCard)
     {
-        List<int> alreadyChecked = new List<int>();
+        List<int> _alreadyChecked = new List<int>();
         foreach (GameObject card in cardsInGame)
         {
-            CardModel cardModel = card.GetComponent<CardModel>();
+            CardModel _cardModel = card.GetComponent<CardModel>();
             card.GetComponent<Draggable>().PlayersChild = false;
 
-            yield return new WaitUntil(() => !cardModel.flipAnimation);
+            yield return new WaitUntil(() => !_cardModel.flipAnimation);
 
             if (secondCard != 0)
             { // Two Pairs and Full House - Action requires to return two card values
-                if (cardModel.CardValue == firstCard || cardModel.CardValue == secondCard)
-                    ChangeCardsParentTwoCards(card, firstCard, secondCard);
+                if (_cardModel.CardValue == firstCard || _cardModel.CardValue == secondCard)
+                    ChangeCardsParentTwoCards(_cardModel, firstCard, secondCard);
             } // High Card, One Pair etc. - Action requires to return one card value
             else if (action == 1 || action == 2 || action == 4 || action == 9)
             {
-                if (cardModel.CardValue == firstCard)
-                    ChangeCardsParent(card);
+                if (_cardModel.CardValue == firstCard)
+                    ChangeCardsParent(_cardModel, _alreadyChecked);
             }
             else if (action == 7)
             { //Flush - Action requires to return cards in the same suit
-                if (cardModel.CardSuit == firstCard)
-                    ChangeCardsParent(card);
+                if (_cardModel.CardSuit == firstCard)
+                    ChangeCardsParent(_cardModel, _alreadyChecked);
             }
             else if (action == 5)
             { //Small Straight - Action requires to return cards from 9 to King
-                if (cardModel.CardValue != 6)
-                    ShowingCardWithoutRepetitions(alreadyChecked, card, cardModel);
+                if (_cardModel.CardValue != 6)
+                    ChangeCardsParent(_cardModel, _alreadyChecked, true);
             }
             else if (action == 6)
             { //Big Straight - Action requires to return cards from 10 to Ace
-                if (cardModel.CardValue != 1)
-                    ShowingCardWithoutRepetitions(alreadyChecked, card, cardModel);
+                if (_cardModel.CardValue != 1)
+                    ChangeCardsParent(_cardModel, _alreadyChecked, true);
             }
             else if (action == 10)
             { //Small Startigh Flush - Action requires to return cards from 9 to King in the same suit
-                if (cardModel.CardSuit == firstCard && cardModel.CardValue != 6)
-                    ChangeCardsParent(card);
+                if (_cardModel.CardSuit == firstCard && _cardModel.CardValue != 6)
+                    ChangeCardsParent(_cardModel, _alreadyChecked);
             }
             else if (action == 11)
             {//Big Startigh Flush - Action requires to return cards from 10 to Ace in the same suit
-                if (cardModel.CardSuit == firstCard && cardModel.CardValue != 1)
-                    ChangeCardsParent(card);
+                if (_cardModel.CardSuit == firstCard && _cardModel.CardValue != 1)
+                    ChangeCardsParent(_cardModel, _alreadyChecked);
             }
         }
-        StartCoroutine(AddingArrows());
-        AddingCardToLoser(action, firstCard, secondCard);
+        StartCoroutine(AddArrows());
+        AddCardToLoser(action, firstCard, secondCard);
     }
-    void ChangeCardsParent(GameObject card)
+    void ChangeCardsParent(CardModel cardModel, List<int> alreadyChecked, bool withoutRepetition = false)
     {
-        CardModel cardModel = card.GetComponent<CardModel>();
-        cardModel.PlayerPosition = card.transform.parent.parent.parent.position;
+        CardModel _cardPreview = null;
 
-        Color _transparency = new Vector4(1f,1f,1f,0.8f);
-        cardModel.GetComponent<SpriteRenderer>().color = _transparency;
-        RectTransform _cardTransform = cardModel.GetComponent<RectTransform>();
-        _cardTransform.position = new Vector3(_cardTransform.position.x, _cardTransform.position.y + 0.1f, _cardTransform.position.z);
+        if (withoutRepetition == true)
+        {
+            if (alreadyChecked.Count == 0)
+            {
+                CreateCardPreview(cardModel, out _cardPreview);
+                _cardPreview.transform.SetParent(checkedCardSingle.transform);
+                alreadyChecked.Add(_cardPreview.CardValue);
+                checkedCardsList.Add(_cardPreview);
+            }
+            else
+            {
+                for (int y = 0; y < alreadyChecked.Count; y++)
+                {
+                    _cardPreview = cardModel;
+                    if (IsDuplicated(_cardPreview.CardValue, alreadyChecked))
+                        break;
+                    else
+                    {
+                        CreateCardPreview(cardModel, out _cardPreview);
+                        _cardPreview.transform.SetParent(checkedCardSingle.transform);
 
-        GameObject cardCopy = Instantiate(cardSView.CardPrefab) as GameObject;
-        CardModel _cardPreview = cardCopy.GetComponent<CardModel>();
+                        //Sets cards in order from 9 to Ace if straight
+                        for (int i = 0; i < checkedCardSingle.transform.childCount - 1; i++)
+                        {
+                            if (_cardPreview.CardValue < checkedCardSingle.transform.GetChild(i).GetComponent<CardModel>().CardValue)
+                            {
+                                _cardPreview.transform.SetSiblingIndex(checkedCardSingle.transform.GetChild(i).GetSiblingIndex());
+                                break;
+                            }
+                            else
+                                continue;
+                        }
 
-        _cardPreview.CardIndex = cardModel.CardIndex;
-        _cardPreview.CardSuit = cardModel.CardSuit;
-        _cardPreview.CardValue = cardModel.CardValue;
-        _cardPreview.ToggleFace(true);
-        _cardPreview.CardCopyInPlayerHand = cardModel.transform;
-
-        _cardPreview.transform.SetParent(checkedCardSingle.transform);
-        checkedCardsList.Add(_cardPreview);
-
-        //Sets cards in order from 9 to Ace if straight
-        if (_cardPreview.CardValue - 1 > checkedCardsList.Count)
-            cardCopy.transform.SetSiblingIndex(checkedCardsList.Count);
+                        alreadyChecked.Add(_cardPreview.CardValue);
+                        checkedCardsList.Add(_cardPreview);
+                    }
+                }
+            }
+        }
         else
-            cardCopy.transform.SetSiblingIndex(cardModel.CardValue - 1);
-
-        //CardModel cardModel = card.GetComponent<CardModel>();
-        ////cardModel.playerName.text = card.transform.parent.parent.parent.GetComponent<Player>().playerName;
-        //cardModel.playerPosition = card.transform.parent.parent.parent.position;
-        //card.transform.SetParent(checkedCardSingle.transform);
-        //checkedCardsList.Add(cardModel);
-
-        ////Sets cards in order from 9 to Ace if straight
-        //if (cardModel.cardValue - 1 > checkedCardsList.Count)
-        //    card.transform.SetSiblingIndex(checkedCardsList.Count);
-        //else
-        //    card.transform.SetSiblingIndex(cardModel.cardValue - 1);
+        {
+            CreateCardPreview(cardModel, out _cardPreview);
+            _cardPreview.transform.SetParent(checkedCardSingle.transform);
+            checkedCardsList.Add(_cardPreview);
+        }
     }
-    void ChangeCardsParentTwoCards(GameObject card, int first, int second)
+    void ChangeCardsParentTwoCards(CardModel cardModel, int first, int second)
     {
-        CardModel cardModel = card.GetComponent<CardModel>();
-        //cardModel.playerName.text = card.transform.parent.parent.parent.GetComponent<Player>().playerName;
-        cardModel.PlayerPosition = card.transform.parent.parent.parent.position;
+        CardModel _cardPreview = null;
+        CreateCardPreview(cardModel, out _cardPreview);
+
         if (cardModel.CardValue == first)
         {
-            card.transform.SetParent(checkedCardsDoubleUP.transform);
-            checkedCardsList.Add(cardModel);
+            _cardPreview.transform.SetParent(checkedCardsDoubleUP.transform);
+            checkedCardsList.Add(_cardPreview);
         }
         else
         {
-            card.transform.SetParent(checkedCardsDoubleDOWN.transform);
-            checkedCardsList.Add(cardModel);
+            _cardPreview.transform.SetParent(checkedCardsDoubleDOWN.transform);
+            checkedCardsList.Add(_cardPreview);
         }
     }
+
+    private void CreateCardPreview (CardModel card, out CardModel cardPreview)
+    {
+        card.CardSpriteRenderer.color = new Vector4(1f, 1f, 1f, 0.8f);
+        RectTransform _cardTransform = card.GetComponent<RectTransform>();
+        _cardTransform.position = new Vector3(_cardTransform.position.x, _cardTransform.position.y + 0.1f, _cardTransform.position.z);
+
+        GameObject _cardCopy = Instantiate(cardSView.CardPrefab) as GameObject;
+        CardModel _cardPreview = _cardCopy.GetComponent<CardModel>();
+
+        _cardPreview.CardIndex = card.CardIndex;
+        _cardPreview.CardSuit = card.CardSuit;
+        _cardPreview.CardValue = card.CardValue;
+        _cardPreview.ToggleFace(true);
+        _cardPreview.CardCopyInPlayerHand = card.transform;
+
+        _cardCopy.name = NamingCards.CardNaming(_cardPreview.CardValue, _cardPreview.CardSuit);
+
+        cardPreview = _cardPreview;
+    }
+    static bool IsDuplicated(int temp, List<int> alreadyChecked)
+    {
+        foreach (int number in alreadyChecked)
+        {
+            if (temp == number)
+                return true;
+        }
+        return false;
+    }
+
     //IEnumerator AddingArrows()
     //{
     //    //float x = 0;
@@ -489,11 +529,13 @@ public class Gameplay : NetworkBehaviour
     //    }
     //}
 
-    IEnumerator AddingArrows()
+    IEnumerator AddArrows()
     {
         int arrowSize = 7;
         float shortCoefficient = 0.8f;
         float arrowWidth = 0.3f;
+        arrowsParent = Instantiate(gameObject);
+        arrowsParent.name = "ArrowsParent";
 
         yield return new WaitUntil(() => /*cards.Length == checkedCardSingle.transform.childCount*/
         checkedCardsList.Count == checkedCardSingle.transform.childCount ||
@@ -505,7 +547,7 @@ public class Gameplay : NetworkBehaviour
             var magnitude = (card.CardCopyInPlayerHand.position - card.transform.position).magnitude;
             var angle = Vector3.Angle(transform.up, vectorBetweenCardAndPlayer);
             int signAngle = (card.CardCopyInPlayerHand.position.x > card.transform.position.x) ? -1 : 1;
-            var arrowGO = Instantiate(arrowPrefab, card.CardCopyInPlayerHand.position, Quaternion.identity);
+            var arrowGO = Instantiate(arrowPrefab, card.CardCopyInPlayerHand.position, Quaternion.identity, arrowsParent.transform);
 
             int signTranslate = (angle > 90) ? -1 : 1;
 
@@ -513,44 +555,13 @@ public class Gameplay : NetworkBehaviour
             arrowGO.transform.localScale = new Vector3(arrowWidth, -magnitude / arrowSize * shortCoefficient, 1);
         }
     }
-    private void ShowingCardWithoutRepetitions(List<int> alreadyChecked, GameObject card, CardModel cardModel)
-    {
-        if (alreadyChecked.Count == 0)
-        {
-            ChangeCardsParent(card);
-            alreadyChecked.Add(cardModel.CardValue);
-        }
-        else
-        {
-            for (int y = 0; y < alreadyChecked.Count; y++)
-            {
-                if (IsDuplicated(cardModel.CardValue, alreadyChecked))
-                    break;
-                else
-                {
-                    ChangeCardsParent(card);
-                    alreadyChecked.Add(cardModel.CardValue);
-                }
-            }
-        }
-    }
-    static bool IsDuplicated(int temp, List<int> alreadyChecked)
-    {
-        foreach (int number in alreadyChecked)
-        {
-            if (temp == number)
-                return true;
-        }
-        return false;
-    }
 
-    void AddingCardToLoser(int aV, int fCV, int sCV)
+    void AddCardToLoser(int aV, int fCV, int sCV)
     {
-        //CardModel[] checkedCards = GameObject.Find("Checked Cards").gameObject.GetComponentsInChildren<CardModel>();
         int numberOfFirstCards = 0;
         int numberOfSecondCards = 0;
 
-        foreach (CardModel card in /*checkedCards*/checkedCardsList)
+        foreach (CardModel card in checkedCardsList)
         {
             if (card.CardValue == fCV)
                 numberOfFirstCards++;
@@ -563,7 +574,7 @@ public class Gameplay : NetworkBehaviour
         else if (aV == 8)
             IncreaceCardsNoInHand_V1(numberOfFirstCards >= 3 && numberOfSecondCards >= 2);
         else
-            IncreaceCardsNoInHand_V1(/*checkedCards.Length*/checkedCardsList.Count >= HowManyCardsDependingOnAction(aV));
+            IncreaceCardsNoInHand_V1(checkedCardsList.Count >= HowManyCardsDependingOnAction(aV));
     }
     void IncreaceCardsNoInHand_V1(bool isTrue)
     {
@@ -583,7 +594,7 @@ public class Gameplay : NetworkBehaviour
 
         if (listOfPlayersThatLost.Count != numberOfPlayers - 1 && !localPlayer.GetComponent<Player>().PlayerLost)
         {
-            PressSpace.SetActive(true);
+            UI_ContinueGame.SetActive(true);
             FindObjectOfType<SpaceMovement>().GetComponent<SpaceMovement>().MoveSpace = true;
         }
     }
@@ -613,8 +624,7 @@ public class Gameplay : NetworkBehaviour
         {   // Setting new seed value neccesary for creating new deck of cards
             randomSeed = Random.Range(1, 99999);
             // Setting Chones variant value to default (0,0,0)
-            localPlayer.GetComponent<NetworkingBrain>().CmdUpdateChosenVariant
-                (0, 0, 0);
+            localPlayer.GetComponent<NetworkingBrain>().CmdUpdateChosenVariant(0, 0, 0);
             NetworkingBrain._instantiate.RpcRestartGame();
         }
     }
@@ -625,37 +635,37 @@ public class Gameplay : NetworkBehaviour
     }
     bool CheckIfReadyToStartNewRound()
     {
-        int[] variablesNecesaryToStartNewRound = { 0, 0, 0 };
-        int arrayLength = variablesNecesaryToStartNewRound.Length;
+        int[] _variablesNecesaryToStartNewRound = { 0, 0, 0 };
+        int _arrayLength = _variablesNecesaryToStartNewRound.Length;
         int x = 0;
-        for (int i =0; i< arrayLength; i++)
+        for (int i =0; i< _arrayLength; i++)
         {
-            if (chosenVariant.GetVariables()[i] == variablesNecesaryToStartNewRound[i])
+            if (chosenVariant.GetVariables()[i] == _variablesNecesaryToStartNewRound[i])
                 x++;
         }
-        if (x < arrayLength)
+        if (x < _arrayLength)
         {
             chosenVariant = new ChosenVariant(0, 0, 0);
             return true;
         }
 
-        return (x == arrayLength) ? true : false;
+        return (x == _arrayLength) ? true : false;
     }
     public IEnumerator RestartGameAction()
     {
         yield return new WaitUntil(() => CheckIfReadyToStartNewRound());
 
-        CheckButtonObject.gameObject.SetActive(false);
+        UI_CheckButton.gameObject.SetActive(false);
         roundEnd = false;
         PlayersReady = false;
         playerLostRound.GetComponent<Player>().ParticlePlusOne.SetActive(false);
         checkedCardsList = new List<CardModel>();
-        //playerLostRound = new GameObject();
 
         //Destroying all arrows
-        GameObject[] arrows = GameObject.FindGameObjectsWithTag("Arrow");
-        for (int i = 0; i < arrows.Length; i++)
-        { Destroy(arrows[i]); }
+        Destroy(arrowsParent);
+        //GameObject[] arrows = GameObject.FindGameObjectsWithTag("Arrow");
+        //for (int i = 0; i < arrows.Length; i++)
+        //{ Destroy(arrows[i]); }
 
         //Destroying all cards
         GameObject[] cards = GameObject.FindGameObjectsWithTag("Card");
@@ -696,10 +706,10 @@ public class Gameplay : NetworkBehaviour
                 if (plyr.PlayerLost)
                     continue;
                 else
-                    winner.text = plyr.PlayerName;
+                    winnerText.text = plyr.PlayerName;
             }
             
-            winScreen.SetActive(true);
+            UI_WinScreen.SetActive(true);
             StartCoroutine(EndGame());
             return;
         }   

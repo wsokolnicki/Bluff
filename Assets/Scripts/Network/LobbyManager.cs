@@ -199,12 +199,12 @@ public class LobbyManager : NetworkLobbyManager
             if (startPos != null)
             {
                 gamePlayer = (GameObject)Instantiate(gamePlayerPrefab, startPos.position, startPos.rotation);
-                gamePlayer.transform.SetParent(GameObject.Find("Players").transform);
+                gamePlayer.transform.SetParent(GameObject.FindGameObjectWithTag("PlayersInGame").transform);
             }
             else
             {
                 gamePlayer = (GameObject)Instantiate(gamePlayerPrefab, Vector3.zero, Quaternion.identity);
-                gamePlayer.transform.SetParent(GameObject.Find("Players").transform);
+                gamePlayer.transform.SetParent(GameObject.FindGameObjectWithTag("PlayersInGame").transform);
             }
             OnLobbyServerSceneLoadedForPlayer(lobbys.gameObject, gamePlayer);
             NetworkServer.ReplacePlayerForConnection(lobbys.GetComponent<NetworkIdentity>().connectionToClient, gamePlayer, controllerId);

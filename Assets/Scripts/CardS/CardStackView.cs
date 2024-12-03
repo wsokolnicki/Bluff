@@ -3,12 +3,11 @@
 public class CardStackView : MonoBehaviour
 {
     private CardStack deck = null;
+    private int lastCount = 0;
+    [HideInInspector] public bool FaceUp = false;
 
     public GameObject CardPrefab = null;
-    [SerializeField] private float cardOffset = 0.0025f;
-
-    private int lastCount = 0;
-    public bool FaceUp = false;
+    [SerializeField] private float deckCardsOffset = 0.0025f;
 
     void Start()
     {
@@ -28,39 +27,37 @@ public class CardStackView : MonoBehaviour
 
     public void ShowCards()
     {
-        int cardCount = 0;
+        int _cardCount = 0;
 
         if (deck.HasCards)
         {
             foreach (int i in deck.GetCards())
             {
-                float co = cardOffset * cardCount;
-                Vector3 temp = transform.position + new Vector3(co, 0f);
-                AddCard(i, temp, cardCount);
-                cardCount++;
+                float _co = deckCardsOffset * _cardCount;
+                Vector3 _temp = transform.position + new Vector3(_co, 0f);
+                AddCard(i, _temp, _cardCount);
+                _cardCount++;
             }
         }
     }
 
-    void AddCard(int cardIndex, Vector3 position, int positionalIndex)
+    void AddCard(int _cardIndex, Vector3 _position, int _positionalIndex)
     {
-        GameObject cardCopy = Instantiate(CardPrefab) as GameObject;
+        GameObject _cardCopy = Instantiate(CardPrefab) as GameObject;
 
-        CardModel cardModel = cardCopy.GetComponent<CardModel>();
-        cardModel.CardIndex = cardIndex;
-        cardModel.CardSuit = NamingCards.AddingSuitsValuesToCards(cardIndex);
-        cardModel.CardValue = NamingCards.AddingValuesToCards(cardIndex);
+        CardModel _cardModel = _cardCopy.GetComponent<CardModel>();
+        _cardModel.CardIndex = _cardIndex;
+        _cardModel.CardSuit = NamingCards.AddingSuitsValuesToCards(_cardIndex);
+        _cardModel.CardValue = NamingCards.AddingValuesToCards(_cardIndex);
 
         if (deck.IsGameDeck)
         {
-            cardCopy.transform.SetParent(GameObject.FindGameObjectWithTag("Deck").transform);
-            cardCopy.name = NamingCards.CardNaming(cardModel.CardValue, cardModel.CardSuit);
+            _cardCopy.transform.SetParent(GameObject.FindGameObjectWithTag("Deck").transform);
+            _cardCopy.name = NamingCards.CardNaming(_cardModel.CardValue, _cardModel.CardSuit);
         }
 
-        cardModel.ToggleFace(false);
-
-        cardCopy.transform.position = position;
-
-        cardCopy.GetComponent<SpriteRenderer>().sortingOrder = positionalIndex + 1;
+        _cardModel.ToggleFace(false);
+        _cardCopy.transform.position = _position;
+        _cardCopy.GetComponent<CardModel>().CardSpriteRenderer.sortingOrder = _positionalIndex + 1;
     }
 }

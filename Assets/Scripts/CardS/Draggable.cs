@@ -7,6 +7,7 @@ public class Draggable : MonoBehaviour
     private Transform parentWhichIsHand = null;
     private Vector2 startingCardPosition = new Vector2(0,0);
     private CardModel cardModel = null;
+    private SpriteRenderer cardSpriteRenderer = null;
     private GameObject placeholder = null;
     private int sortOrder = 0;
     [HideInInspector] public bool PlayersChild = false;
@@ -16,6 +17,7 @@ public class Draggable : MonoBehaviour
     private void Start()
     {
         cardModel = GetComponent<CardModel>();
+        cardSpriteRenderer = cardModel.CardSpriteRenderer;
     }
 
     private void OnMouseDown()
@@ -25,24 +27,25 @@ public class Draggable : MonoBehaviour
             return;
         }
 
+        SpriteRenderer _cardModelSpriteRenderer = cardModel.GetComponent<SpriteRenderer>();
+
         startingCardPosition = transform.position;
         parentWhichIsHand = this.transform.parent;
 
         placeholder = new GameObject();
         placeholder.name = "PLACEHOLDER";
-        placeholder.transform.SetParent(this.transform.parent);
+        placeholder.transform.SetParent(parentWhichIsHand);
         LayoutElement _le = placeholder.AddComponent<LayoutElement>();
         placeholder.GetComponent<RectTransform>().sizeDelta = placeholderCardSize;
-        _le.preferredWidth = this.GetComponent<LayoutElement>().preferredWidth + 1;
-        _le.preferredHeight = this.GetComponent<LayoutElement>().preferredHeight;
+        _le.preferredWidth = _le.preferredWidth + 1;
+        _le.preferredHeight = _le.preferredHeight;
         _le.flexibleWidth = 0;
         _le.flexibleHeight = 0;
 
         placeholder.transform.SetSiblingIndex(this.transform.GetSiblingIndex());
-
-        this.transform.SetParent(this.transform.parent.parent);
-        sortOrder = cardModel.GetComponent<SpriteRenderer>().sortingOrder;
-        cardModel.GetComponent<SpriteRenderer>().sortingOrder = 100;
+        this.transform.SetParent(parentWhichIsHand.parent);
+        sortOrder = _cardModelSpriteRenderer.sortingOrder;
+        sortOrder = 100;
         GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
@@ -58,7 +61,7 @@ public class Draggable : MonoBehaviour
             yield return new WaitForEndOfFrame();
             for (int i = 0; i < parentWhichIsHand.childCount; i++)
             {
-                parentWhichIsHand.transform.GetChild(i).GetComponent<SpriteRenderer>().sortingOrder =
+                parentWhichIsHand.transform.GetChild(i).GetComponent<CardModel>().CardSpriteRenderer.sortingOrder =
                     parentWhichIsHand.transform.GetChild(i).transform.GetSiblingIndex();
             }
         }
