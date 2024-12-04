@@ -2589,7 +2589,7 @@ Transform:
   m_LocalScale: {x: 1.6143498, y: 1.6143498, z: 1.6143498}
   m_Children: []
   m_Father: {fileID: 1025210365}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &212278183
 GameObject:
@@ -13569,9 +13569,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1919312236}
   - {fileID: 205547856}
   - {fileID: 1051483848}
-  - {fileID: 1919312236}
   - {fileID: 880435323}
   - {fileID: 307947998}
   - {fileID: 850399947}
@@ -13939,7 +13939,7 @@ RectTransform:
   m_Children:
   - {fileID: 2016303969}
   m_Father: {fileID: 1025210365}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -25337,7 +25337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1919312236
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25362,11 +25362,11 @@ RectTransform:
   - {fileID: 1466727287}
   - {fileID: 686288999}
   m_Father: {fileID: 1025210365}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -132, y: -371}
+  m_AnchoredPosition: {x: -210, y: -371}
   m_SizeDelta: {x: 246.4, y: 298.5}
   m_Pivot: {x: 0.5000004, y: 0.5}
 --- !u!114 &1919312237
@@ -25383,6 +25383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currPlIndx: {fileID: 970718672}
   seed: {fileID: 686289000}
+  gmplmng: {fileID: 2058903024}
 --- !u!1 &1926261511
 GameObject:
   m_ObjectHideFlags: 0
@@ -27497,6 +27498,7 @@ MonoBehaviour:
   cardsInGame: []
   listOfPlayersThatLost: 
   localPlayer: {fileID: 0}
+  playerLostRound: {fileID: 0}
   numberOfPlayers: 0
   noOfCardsInDeck: 0
   currentPlayerIndex: 0

@@ -8,7 +8,7 @@ public class Player : NetworkBehaviour
     [SerializeField] private Text playerNameText = null;
     [SerializeField] private GameObject playerNameGO = null;
     [SerializeField] private GameObject playersTurn = null;
-    public GameObject ParticlePlusOne = null;
+    [SerializeField] private GameObject particlePlusOne = null;
 
     public int NoOfCardsInHand = 1;
     public int CurrentNoOfCardsInHand = 0;
@@ -144,5 +144,10 @@ public class Player : NetworkBehaviour
             GetComponent<NetworkingBrain>().CmdPlayerReadySync(false);
         else
             RpcPlayerReadySync(false);
+    }
+
+    public void LostParticleManager(bool shouldBeActive)
+    {
+        particlePlusOne.SetActive(shouldBeActive);
     }
 }

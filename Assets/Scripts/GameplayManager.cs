@@ -34,15 +34,15 @@ public class GameplayManager : NetworkBehaviour
 
 
     [Header("Lists")]
-    public List<GameObject> playerArray;
-    public List<GameObject> cardsInGame;
+    public List<GameObject> playerArray = new List<GameObject>();
+    public List<GameObject> cardsInGame = new List<GameObject>();
     [HideInInspector] public List<int> listOfPlayersThatLost = new List<int>(); //temp public
     List<CardModel> checkedCardsList = new List<CardModel>();
 
-    [HideInInspector] public GameObject localPlayer;
-    private GameObject playerLostRound;
-    [HideInInspector] public int numberOfPlayers; //public is temporary - delete if temptext class deleted
-    [HideInInspector] public int noOfCardsInDeck;
+    [HideInInspector] public GameObject localPlayer = null;
+    public GameObject playerLostRound = null;
+    [HideInInspector] public int numberOfPlayers = 0; //public is temporary - delete if temptext class deleted
+    [HideInInspector] public int noOfCardsInDeck = 0;
 
     NetworkingBrain networkLocalPlayer;
     int tottalAmountOfCardsInGameThisRound = 0;
@@ -125,6 +125,7 @@ public class GameplayManager : NetworkBehaviour
     {
         StartCoroutine(CreatingPlayersAndStartingTheGame());
         cardSView = FindObjectOfType<CardStackView>();
+        playerLostRound = new GameObject();
     }
 
     private void Update()
@@ -332,8 +333,7 @@ public class GameplayManager : NetworkBehaviour
                 continue;
             StartCoroutine(cardModel.FlipACard());
         }
-        StartCoroutine(MovePlayingCardsToCenter
-                (chosenVariant.actionValue, chosenVariant.firstCardValue, chosenVariant.secondCardValue));
+        StartCoroutine(MovePlayingCardsToCenter(chosenVariant.actionValue, chosenVariant.firstCardValue, chosenVariant.secondCardValue));
     }
     IEnumerator MovePlayingCardsToCenter(int action, int firstCard, int secondCard)
     {
@@ -586,11 +586,12 @@ public class GameplayManager : NetworkBehaviour
     void IncreaceCardsNoInHand_V2(GameObject player)
     {
         playerLostRound = player;
-        player.GetComponent<Player>().NoOfCardsInHand++;
+        Player _playerScript = player.GetComponent<Player>();
+        _playerScript.NoOfCardsInHand++;
         if (CheckIfPlayerLost(player))          
             DesactivatePlayerWhenLost(player);
         else
-            player.GetComponent<Player>().ParticlePlusOne.SetActive(true);
+            _playerScript.LostParticleManager(true);
 
         if (listOfPlayersThatLost.Count != numberOfPlayers - 1 && !localPlayer.GetComponent<Player>().PlayerLost)
         {
@@ -658,14 +659,14 @@ public class GameplayManager : NetworkBehaviour
         UI_CheckButton.gameObject.SetActive(false);
         roundEnd = false;
         PlayersReady = false;
-        playerLostRound.GetComponent<Player>().ParticlePlusOne.SetActive(false);
+        playerLostRound.GetComponent<Player>().LostParticleManager(false);
         checkedCardsList = new List<CardModel>();
 
         //Destroying all arrows
-        Destroy(arrowsParent);
-        //GameObject[] arrows = GameObject.FindGameObjectsWithTag("Arrow");
-        //for (int i = 0; i < arrows.Length; i++)
-        //{ Destroy(arrows[i]); }
+        //Destroy(arrowsParent);
+        GameObject[] arrows = GameObject.FindGameObjectsWithTag("Arrow");
+        for (int i = 0; i < arrows.Length; i++)
+        { Destroy(arrows[i]); }
 
         //Destroying all cards
         GameObject[] cards = GameObject.FindGameObjectsWithTag("Card");

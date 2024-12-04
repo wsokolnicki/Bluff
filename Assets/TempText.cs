@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-#pragma warning disable 0649
 
 public class TempText : MonoBehaviour
 {
@@ -16,6 +15,7 @@ public class TempText : MonoBehaviour
     //[SerializeField] Text boolCurrPl3;
     //[SerializeField] Text boolCurrPl4;
     [SerializeField] Text seed;
+    [SerializeField] GameplayManager gmplmng = null;
 
     //Text[] players;
     //Text[] bools;
@@ -40,16 +40,16 @@ public class TempText : MonoBehaviour
         //if (!x)
         //    return;
 
-        currPlIndx.text = GameplayManager._instance.listOfPlayersThatLost.Count.ToString();
+        //currPlIndx.text = GameplayManager._instance.listOfPlayersThatLost.Count.ToString();
 
         //for (int i = 0; i < Gameplay._instance.numberOfPlayers; i++)
         //{
         //    players[i].text = Gameplay._instance.playerArray[i].GetComponent<Player>().playerName;
         //    bools[i].text = Gameplay._instance.playerArray[i].GetComponent<Player>().currentPlayer.ToString();
         //}
-        int dupa = GameplayManager._instance.lastPlayerIndex + 1;
-        seed.text = dupa.ToString();
+        //int dupa = GameplayManager._instance.lastPlayerIndex + 1;
+        //seed.text = dupa.ToString();
+
+        seed.text = gmplmng.playerLostRound == null ? "Null" : gmplmng.playerLostRound.name.ToString();
     }
 }
-
-#pragma warning restore 0649

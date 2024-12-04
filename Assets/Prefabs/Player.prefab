@@ -9873,8 +9873,8 @@ MonoBehaviour:
   playerNameText: {fileID: 8427394144027841840}
   playerNameGO: {fileID: 8427394144027841846}
   playersTurn: {fileID: 1813154090445477128}
-  ParticlePlusOne: {fileID: 4360573952435720808}
-  NoOfCardsInHand: 1
+  particlePlusOne: {fileID: 4360573952435720808}
+  NoOfCardsInHand: 4
   CurrentNoOfCardsInHand: 0
   CurrentPlayer: 0
   PlayerName: Player
